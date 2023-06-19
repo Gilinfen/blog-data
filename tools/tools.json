@@ -1,5 +1,11 @@
 [
   {
+    "title": "Pake",
+    "href": "https://github.com/tw93/pake",
+    "description": ["很简单的用 Rust 打包网页生成很小的桌面 App"],
+    "img": "https://camo.githubusercontent.com/4225451910eb9b54bccaf2823ad6d7049f04edf3651ab8b4bbc2578cca30ce33/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f6b2f7a642f70616b652e676966"
+  },
+  {
     "title": "Chat2DB",
     "href": "https://github.com/alibaba/Chat2DB",
     "description": ["智能的通用数据库SQL客户端和报表工具"],
