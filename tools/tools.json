@@ -1,0 +1,267 @@
+[
+  {
+    "title": "node-notifier",
+    "href": "https://github.com/mikaelbr/node-notifier",
+    "description": [
+      "用于在本机 Mac、Windows 和 Linux 上发送通知的 Node.js 模块（或 Growl 作为后备）"
+    ],
+    "img": "https://raw.githubusercontent.com/mikaelbr/node-notifier/master/example/input-example.gif"
+  },
+  {
+    "title": "React-Toastify",
+    "href": "https://github.com/fkhadra/react-toastify",
+    "description": [
+      "React 通知变得容易🚀！",
+      "React-Toastify 允许您轻松地向您的应用程序添加通知"
+    ],
+    "img": "https://user-images.githubusercontent.com/5574267/130804494-a9d2d69c-f170-4576-b2e1-0bb7f13dd92d.gif"
+  },
+  {
+    "title": "Linux Command",
+    "href": "https://github.com/jaywcjlove/linux-command",
+    "description": [
+      "Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集。"
+    ],
+    "img": "https://user-images.githubusercontent.com/1680273/123261829-ce830300-d529-11eb-8cea-a39059b972dd.gif"
+  },
+  {
+    "title": "Fig",
+    "href": "https://github.com/withfig/autocomplete",
+    "description": [
+      "使命令行对个人来说更容易，对团队来说更协作。",
+      "我们最受欢迎的产品是自动完成。在您键入时，Fig 会在您现有的终端中弹出子命令、选项和上下文相关的参数。",
+      "现有终端和外壳的 IDE 样式自动完成"
+    ],
+    "img": "https://camo.githubusercontent.com/74884a83c88c19b27b1a451b7e618fe773c6a48f6cb209a02d3fe70381a4f9d9/68747470733a2f2f6669672e696f2f676966732f64656d6f2d776974682d6865616465722e676966"
+  },
+  {
+    "title": "GitHub520",
+    "href": "https://github.com/521xueweihan/GitHub520",
+    "description": [
+      "这个仓库整合了所有 Github 部分域名的加速映射地址。让你无需魔法就可快速访问 Github",
+      "😘 让你“爱”上 GitHub，解决访问时图裂、加载慢的问题。（无需安装）",
+      "仓库容会自动定时更新"
+    ],
+    "img": "https://camo.githubusercontent.com/a44d792b75c3047151c8d70db68469afa69a0caf120ddcc1fa37cc67b91a8529/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f35323178756577656968616e2f696d675f6c6f676f406d61696e2f6c6f676f2f726561646d652e676966"
+  },
+  {
+    "title": "Maple Font",
+    "href": "https://github.com/subframe7536/maple-font",
+    "description": [
+      "Maple Mono:开源等宽字体，带有圆角，连接和书呆子字体，用于IDE和命令行。",
+      "带连字和控制台图标的圆角等宽字体，中英文宽度完美2:1"
+    ],
+    "img": "https://github.com/subframe7536/maple-font/raw/main/img/head.svg"
+  },
+  {
+    "title": "upscayl",
+    "href": "https://upscayl.org",
+    "description": [
+      "Upscayl 可让您使用高级 AI 算法放大和增强低分辨率图像。在不降低质量的情况下放大图像，就像变魔术一样！🎩",
+      "Upscayl 是一个基于 Linux 优先理念构建的跨平台应用程序。",
+      "这意味着 Linux 用户可以更早地收到预发布版本，但 Upscayl 本身在所有主要桌面操作系统上都可用 :)"
+    ],
+    "img": "https://user-images.githubusercontent.com/25067102/237209401-ca4c118b-2b9a-4652-adc3-871e1cd19ecc.jpg"
+  },
+  {
+    "title": "Aether",
+    "href": "https://getaether.net/",
+    "description": "一个点对点的桌面软件，用来搭建私人社区，一组用户可以用它交换内容，一个人发帖，其他人都可以看到，不需要服务器。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202209/bg2022090806.webp"
+  },
+  {
+    "title": "Chitchatter",
+    "href": "https://chitchatter.im/",
+    "description": "一个开源的点对点网页聊天应用，聊天内容不经过服务器，可以自己搭建，分享房间号给其他人。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202209/bg2022090703.webp"
+  },
+  {
+    "title": "Helix",
+    "href": "https://helix-editor.com/",
+    "description": "一个现代版 Vim 编辑器，完全用 Rust 语言重写了。它跟 NeoVim 的主要不同是，它把一些主要的插件都做进去了，不用安装插件。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202209/bg2022090702.webp"
+  },
+  {
+    "title": "stable-diffusion-videos",
+    "href": "https://github.com/nateraw/stable-diffusion-videos",
+    "description": "用户提供两张图片，这个工具使用开源的 Stable Diffusion 模型，生成一段视频，内容是图片 A 逐渐变成图片 B。"
+  },
+  {
+    "title": "Herowand Editor",
+    "href": "https://editor.herowand.com/",
+    "description": "一个网页工具，可以将 JSON、XML、YAML、TOML 格式的数据可视化展示。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202304/bg2023041703.webp"
+  },
+  {
+    "title": "Tabby",
+    "href": "https://github.com/TabbyML/tabby",
+    "description": "GitHub Copilot 的开源替代品，AI 代码助手，可以自己架设，并且离线使用。它还提供 Web 界面，根据指令生成代码。"
+  },
+  {
+    "title": "Docker-OSX",
+    "href": "https://github.com/sickcodes/Docker-OSX",
+    "description": "一个运行 macOS 虚拟机的 Docker 镜像。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202301/bg2023011501.webp"
+  },
+  {
+    "title": "eslint-plugin-check-file",
+    "href": "https://github.com/DukeLuo/eslint-plugin-check-file",
+    "description": "一个 ESLint 插件，检查文件名是否符合指定规则。"
+  },
+  {
+    "title": "stagit",
+    "href": "https://git.codemadness.org/stagit/",
+    "description": "这个软件可以将 Git 仓库转为一个静态网站，为每个文件、每次提交生成一个页面。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202212/bg2022121903.webp"
+  },
+  {
+    "title": "snappify",
+    "href": "https://snappify.com/editor",
+    "description": "一个将代码片段生成截图的工具。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202212/bg2022120903.webp"
+  },
+  {
+    "title": "Relight",
+    "href": "https://clipdrop.co/relight",
+    "description": "这个网页工具可以调节照片的灯光。用户上传一张照片，它可以修改灯光，调节颜色、距离、亮度等等，还可以添加其他光源。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202209/bg2022091003.webp"
+  },
+  {
+    "title": "docker-rollout",
+    "href": "https://github.com/Wowu/docker-rollout",
+    "description": "这个工具可以不停机更新 Docker Compose 里面的某个服务。原理是同时新建两个实例，用已更新的实例替换未更新的实例。"
+  },
+  {
+    "title": "browsertunnel",
+    "href": "https://github.com/veggiedefender/browsertunnel",
+    "description": "这个软件可以将用户信息，通过网页的 DNS 请求传回服务器。注意，不是 HTTP 请求，而是使用查询域名的 DNS 请求夹带额外信息。这种监视用户的方法，很难发现，也很难阻止。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202211/bg2022111405.webp"
+  },
+  {
+    "title": "SceneXplain",
+    "href": "https://scenex.jina.ai/",
+    "description": "用户上传一张图片，它会给出图片的详细文字描述，号称比其他模型效果好。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202304/bg2023040613.webp"
+  },
+  {
+    "title": "Mafs",
+    "href": "https://mafs.dev/",
+    "description": "一个基于 React 的互动式数学图形组件库。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202301/bg2023010301.webp"
+  },
+  {
+    "title": "Tartelet",
+    "href": "https://github.com/shapehq/tartelet",
+    "description": "一个在本机运行 GitHub Actions 的工具，通过虚拟机来执行任务，只支持 MacOS 系统。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202303/bg2023032917.webp"
+  },
+  {
+    "title": "ov",
+    "href": "https://noborus.github.io/ov/",
+    "description": "一个命令行的文本阅读器，用来替代less或more。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202301/bg2023010405.webp"
+  },
+  {
+    "title": "webrtc-ips",
+    "href": "https://github.com/joeymalvinni/webrtc-ip",
+    "description": "正常情况下，如果不借助服务器，客户端 JS 脚本无法获取用户 的 IP 地址。这个库使用 WebRTC，可以在客户端拿到用户的 IP 地址。"
+  },
+  {
+    "title": "Restfox",
+    "href": "https://restfox.dev/",
+    "description": "Postman 的 Web 开源替代品，完全在浏览器里面使用，用来调试 API。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202210/bg2022102203.webp"
+  },
+  {
+    "title": "useragents.me",
+    "href": "https://www.useragents.me/",
+    "description": "这个网站提供各种最新版本浏览器的 User Agent 字符串。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202212/bg2022121803.webp"
+  },
+  {
+    "title": "Catppuccin",
+    "href": "https://github.com/catppuccin/catppuccin",
+    "description": "一套配色主题，特点是色彩柔和缤纷，不太亮不太暗，对于各种主要的应用软件都进行了适配。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202212/bg2022121404.webp"
+  },
+  {
+    "title": "image-flow",
+    "href": "https://github.com/one-piece-official/ImageFlow",
+    "description": "一个网页图片的动画特效的 React 组件，特效通过OpenGL ES 编写，在 GPU 执行。"
+  },
+  {
+    "title": "cloudping.info",
+    "href": "https://www.cloudping.info/",
+    "description": "这个网站可以测试你的机器 ping 世界各地的亚马逊云服务器的速度。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202210/bg2022100204.webp"
+  },
+  {
+    "title": "Sharing",
+    "href": "https://github.com/parvardegr/sharing",
+    "description": "一个命令行工具，生成一个二维码，可以把本机文件分享给局域网内的手机。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202210/bg2022100705.webp"
+  },
+  {
+    "title": "Manticore Search",
+    "href": "https://github.com/manticoresoftware/manticoresearch",
+    "description": "一个开源的全文搜索引擎，号称可以替代 Elasticsearch，支持中文。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202207/bg2022072904.webp"
+  },
+  {
+    "title": "Unsilence",
+    "href": "https://github.com/lagmoellertim/unsilence",
+    "description": "一个命令行工具，自动删除视频里面的无声片段，比较适合处理演讲、讲座视频。"
+  },
+  {
+    "title": "handsome-css3-lib",
+    "href": "https://www.handsome-css.com/",
+    "description": "这个网站收集各种 CSS 特效和组件。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202302/bg2023022005.webp"
+  },
+  {
+    "title": "Float Toy",
+    "href": "https://evanw.github.io/float-toy/",
+    "description": "这个网页可视化展示浮点数的二进制构成，包括半精度、单精度和双精度。它的特点是，每个二进制位只要点击就变成相反值（0变成1，或者1变成0）。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202208/bg2022082104.webp"
+  },
+  {
+    "title": "Aspect",
+    "href": "https://sample-code.aspect.app/",
+    "description": "一个浏览器插件，允许从网页里面拷贝任意 UI 组件，把它的代码还原出来，相当于从 UI 的逆向工程。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202207/bg2022071005.webp"
+  },
+  {
+    "title": "Shottr",
+    "href": "https://shottr.cc/",
+    "description": "一款 Mac 电脑的免费截屏软件，性能非常好，支持滚动截屏，还可以像素级修补图像。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202206/bg2022061901.webp"
+  },
+  {
+    "title": "Lorien",
+    "href": "https://github.com/mbrlabs/Lorien",
+    "description": "一个绘图 + 笔记的画布软件，可以导出 SVG 格式。底层使用 Godot 游戏引擎，图形性能非常好，支持 Linux/Mac/Windows 系统。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202206/bg2022061301.webp"
+  },
+  {
+    "title": "bore",
+    "href": "https://github.com/ekzhang/bore",
+    "description": "一个非常简单的命令行工具，让你轻松将内网端口暴露到互联网上。"
+  },
+  {
+    "title": "Everything",
+    "href": "https://www.voidtools.com/zh-cn/",
+    "description": "著名的 Windows 免费桌面软件，根据文件名，快速查找文件。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202202/bg2022020604.webp"
+  },
+  {
+    "title": "xxh",
+    "href": "https://github.com/xxh/xxh",
+    "description": "远程服务器登录的时候，往往只有 Bash 可用。这个工具可以把你本地的 Shell 环境（zsh、fish 等等）自动带到远程服务器。"
+  },
+  {
+    "title": "nginx playground",
+    "href": "https://nginx-playground.wizardzines.com/",
+    "description": "一个线上的 nginx 游乐场。你可以在网页上填写 nginx 配置文件，然后在线启动一个 nginx 实例。接着，你输入各种 curl 命令，与这个实例互动。",
+    "img": "https://cdn.beekka.com/blogimg/asset/202109/bg2021092504.jpg"
+  }
+]
