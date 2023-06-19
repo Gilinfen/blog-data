@@ -1,5 +1,11 @@
 [
   {
+    "title": "Chat2DB",
+    "href": "https://github.com/alibaba/Chat2DB",
+    "description": ["智能的通用数据库SQL客户端和报表工具"],
+    "img": "https://camo.githubusercontent.com/9cb08de4ed4c8a4c6a1ae537177d703615385fb53ca3841932228426be25b02c/68747470733a2f2f67772e616c6963646e2e636f6d2f696d6765787472612f69332f4f31434e3031506c704c59793168497135614d756770675f2121363030303030303030343235352d302d7470732d333434362d313735302e6a7067"
+  },
+  {
     "title": "node-notifier",
     "href": "https://github.com/mikaelbr/node-notifier",
     "description": [
