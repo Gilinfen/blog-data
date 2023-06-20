@@ -2,18 +2,45 @@
   "name": "blog-data",
   "version": "1.0.0",
   "scripts": {
-    "prepare": "husky install",
+    "start": "ts-node --project ./tsconfig.base.json ./scripts/start",
+    "dev": "vite",
+    "node": "nodemon ./server",
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prepare": "vite preview & husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "antd": "^5.6.2",
+    "nanoid": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.63.4"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
-    "eslint": "^8.43.0",
+    "@types/cross-spawn": "^6.0.2",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@types/ws": "^8.5.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "cross-spawn": "^7.0.3",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier": "latest"
+    "nodemon": "^2.0.22",
+    "prettier": "latest",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9",
+    "ws": "^8.13.0"
   },
   "lint-staged": {
     "*": [
