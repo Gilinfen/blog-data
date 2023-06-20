@@ -1,5 +1,17 @@
 [
   {
+    "title": "neofetch",
+    "href": "https://github.com/dylanaraps/neofetch",
+    "description": ["🖼️ 一个用bash 3.2+编写的命令行系统信息工具"],
+    "img": "https://camo.githubusercontent.com/82b03feab20083a17944229ea151c0fbd521cae0ecb44a8b2f3934ebce2e1e91/68747470733a2f2f692e696d6775722e636f6d2f47466d433541642e706e67"
+  },
+  {
+    "title": "nnn - Supercharge your productivity!",
+    "href": "https://github.com/jarun/nnn",
+    "description": ["n³非正统终端文件管理器"],
+    "img": "https://camo.githubusercontent.com/0cb82147f9c58d408c07db532d1397621bad38e81dbe7e8ba3f2c2c149b96c83/68747470733a2f2f692e696d6775722e636f6d2f4e5573534132752e6a7067"
+  },
+  {
     "title": "Pake",
     "href": "https://github.com/tw93/pake",
     "description": ["很简单的用 Rust 打包网页生成很小的桌面 App"],

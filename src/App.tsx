@@ -56,6 +56,7 @@ const items: Array<{
       {
         label: 'description',
         name: 'description',
+        tyoe: 'array',
       },
       {
         label: 'img',
