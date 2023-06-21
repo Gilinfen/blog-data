@@ -1,66 +1,135 @@
 import FromCom, { FormTypes } from './FromCom'
 import './App.scss'
 import useSocket from './hooks/useSocket'
-import { useCallback } from 'react'
-import { Tabs, message } from 'antd'
+import { useCallback, useEffect, useState } from 'react'
+import {
+  Button,
+  Divider,
+  Popconfirm,
+  Space,
+  Tabs,
+  Tooltip,
+  message,
+} from 'antd'
 import { MessageType } from './interface'
-
-const onChange = (key: string) => {
-  console.log(key)
-}
 
 const items: Array<{
   key: string
   label: string
   value: FormTypes[]
+  formData?: any
   type: MessageType['type']
 }> = [
   {
-    key: 'Tools',
+    key: 'tools',
     label: `Tools`,
     type: 'tools',
     value: [
       {
-        label: 'title',
+        label: '名称',
         name: 'title',
+        tyoe: 'string',
       },
       {
-        label: 'href',
+        label: '官网/仓库',
         name: 'href',
+        tyoe: 'string',
       },
       {
-        label: 'description',
+        label: '描述',
         name: 'description',
         tyoe: 'array',
       },
       {
-        label: 'img',
+        label: '系统',
+        name: 'os',
+        tyoe: 'select',
+        defaultValue: 'mac',
+        options: [
+          {
+            label: 'All',
+            value: 'all',
+          },
+          {
+            label: 'Mac',
+            value: 'mac',
+          },
+          {
+            label: 'Linux',
+            value: 'linuc',
+          },
+          {
+            label: 'Windows',
+            value: 'windows',
+          },
+        ],
+      },
+      {
+        label: '图片',
         name: 'img',
+        tyoe: 'string',
         required: false,
       },
     ],
   },
   {
-    key: 'Npm',
+    key: 'npm',
     label: `Npm`,
     type: 'npm',
     value: [
       {
-        label: 'title',
+        label: '名称',
         name: 'title',
+        tyoe: 'string',
       },
       {
-        label: 'href',
+        label: '官网/仓库',
         name: 'href',
+        tyoe: 'string',
       },
       {
-        label: 'description',
+        label: 'Npm',
+        name: 'npm',
+        tyoe: 'string',
+      },
+      {
+        label: 'Npm Link',
+        name: 'npm-link',
+        tyoe: 'string',
+      },
+      {
+        label: '语音/框架',
+        name: 'support',
+        tyoe: 'select',
+        defaultValue: 'js',
+        options: [
+          {
+            label: 'All',
+            value: 'js',
+          },
+          {
+            label: 'React',
+            value: 'react',
+          },
+          {
+            label: 'Node',
+            value: 'node',
+          },
+          {
+            label: 'Vue',
+            value: 'vue',
+          },
+        ],
+      },
+      {
+        label: '描述',
         name: 'description',
         tyoe: 'array',
       },
       {
-        label: 'img',
+        label: '图片',
         name: 'img',
+        tyoe: 'string',
         required: false,
       },
     ],
@@ -68,23 +137,93 @@ const items: Array<{
 ]
 
 function App() {
-  const onMessage = useCallback((value: MessageEvent<any>) => {
-    console.log(value)
-    message.success('添加成功')
+  const [dataList, setDatalist] = useState([])
+  const [tabsKey, setTabKey] = useState<MessageType['type']>('tools')
+  const [itemsState, setItems] = useState(items)
+
+  const onMessage = useCallback((value: MessageEvent<string>) => {
+    const res = JSON.parse(value.data) as MessageType
+    switch (res.state) {
+      case 'read':
+        setDatalist(res.data)
+        break
+
+      case 'update':
+        message.success('添加成功')
+        send({
+          type: res.type,
+          state: 'read',
+        })
+        break
+
+      case 'find':
+        setItems((state) => {
+          const newState = [...state]
+          const val = newState.find((e) => e.type === res.type)
+          if (val) {
+            val.formData = res.data
+            return newState
+          }
+          return [...state]
+        })
+        break
+
+      default:
+        break
+    }
   }, [])
 
-  const { send } = useSocket({
+  const { send, link } = useSocket({
     callback: onMessage,
   })
-  const onFinish = (data: MessageType) => {
+
+  useEffect(() => {
+    if (link) {
+      send({
+        type: tabsKey,
+        state: 'read',
+      })
+    }
+  }, [link, tabsKey])
+
+  const onChange = useCallback((key: string) => {
+    setTabKey(key as MessageType['type'])
+  }, [])
+
+  const update = useCallback((data: string, type: MessageType['type']) => {
+    send({
+      data,
+      type,
+      state: 'find',
+    })
+  }, [])
+
+  const onFinish = useCallback((data: MessageType) => {
     send(data)
-  }
+  }, [])
+
+  const confirm = useCallback((data: string, type: MessageType['type']) => {
+    send({
+      data,
+      type,
+      state: 'del',
+    })
+    message.success('Click on Yes')
+    send({
+      type,
+      state: 'read',
+    })
+  }, [])
+
+  const cancel = useCallback(() => {
+    message.error('Click on No')
+  }, [])
   return (
     <div className="layout">
       <Tabs
-        defaultActiveKey="Tools"
+        defaultActiveKey={tabsKey}
         tabPosition="left"
-        items={items.map((item) => {
+        items={itemsState.map((item) => {
           return {
             key: item.key,
             label: item.label,
@@ -93,9 +232,11 @@ function App() {
                 onFinish={(value) =>
                   onFinish({
                     data: value,
+                    state: 'update',
                     type: item.type,
                   })
                 }
+                value={item.formData}
                 data={item.value}
               />
             ),
@@ -103,6 +244,55 @@ function App() {
         })}
         onChange={onChange}
       />
+      <ol>
+        <Divider plain>
+          <h2>{dataList.length}</h2>
+        </Divider>
+        {dataList.map((item: any, i) => {
+          return (
+            <li key={item.title}>
+              <h4>
+                <Tooltip placement="topLeft" title={item.description}>
+                  <Space>
+                    <div style={{ width: 30, textAlign: 'center' }}>
+                      {i + 1}
+                    </div>
+                    <a href={item.href} target="_blank">
+                      {item.title}
+                    </a>
+                  </Space>
+                </Tooltip>
+                <div className="tools">
+                  <Button
+                    type="link"
+                    onClick={() => update(item.title, tabsKey)}
+                  >
+                    编辑
+                  </Button>
+                  <Popconfirm
+                    title={`删除 ${tabsKey} - ${item.title}`}
+                    description={
+                      <Space>
+                        确定要删除
+                        <h4>{item.title}</h4>
+                        吗？
+                      </Space>
+                    }
+                    onCancel={cancel}
+                    onConfirm={() => confirm(item.title, tabsKey)}
+                    okText="Yes"
+                    cancelText="No"
+                  >
+                    <Button danger type="link">
+                      DELETE
+                    </Button>
+                  </Popconfirm>
+                </div>
+              </h4>
+            </li>
+          )
+        })}
+      </ol>
     </div>
   )
 }

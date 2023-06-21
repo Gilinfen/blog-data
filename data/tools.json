@@ -12,12 +12,6 @@
     "img": "https://camo.githubusercontent.com/0cb82147f9c58d408c07db532d1397621bad38e81dbe7e8ba3f2c2c149b96c83/68747470733a2f2f692e696d6775722e636f6d2f4e5573534132752e6a7067"
   },
   {
-    "title": "Pake",
-    "href": "https://github.com/tw93/pake",
-    "description": ["很简单的用 Rust 打包网页生成很小的桌面 App"],
-    "img": "https://camo.githubusercontent.com/4225451910eb9b54bccaf2823ad6d7049f04edf3651ab8b4bbc2578cca30ce33/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f6b2f7a642f70616b652e676966"
-  },
-  {
     "title": "Chat2DB",
     "href": "https://github.com/alibaba/Chat2DB",
     "description": ["智能的通用数据库SQL客户端和报表工具"],
@@ -30,15 +24,6 @@
       "用于在本机 Mac、Windows 和 Linux 上发送通知的 Node.js 模块（或 Growl 作为后备）"
     ],
     "img": "https://raw.githubusercontent.com/mikaelbr/node-notifier/master/example/input-example.gif"
-  },
-  {
-    "title": "React-Toastify",
-    "href": "https://github.com/fkhadra/react-toastify",
-    "description": [
-      "React 通知变得容易🚀！",
-      "React-Toastify 允许您轻松地向您的应用程序添加通知"
-    ],
-    "img": "https://user-images.githubusercontent.com/5574267/130804494-a9d2d69c-f170-4576-b2e1-0bb7f13dd92d.gif"
   },
   {
     "title": "Linux Command",
@@ -166,12 +151,6 @@
     "href": "https://scenex.jina.ai/",
     "description": "用户上传一张图片，它会给出图片的详细文字描述，号称比其他模型效果好。",
     "img": "https://cdn.beekka.com/blogimg/asset/202304/bg2023040613.webp"
-  },
-  {
-    "title": "Mafs",
-    "href": "https://mafs.dev/",
-    "description": "一个基于 React 的互动式数学图形组件库。",
-    "img": "https://cdn.beekka.com/blogimg/asset/202301/bg2023010301.webp"
   },
   {
     "title": "Tartelet",

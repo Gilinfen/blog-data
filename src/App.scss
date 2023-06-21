@@ -2,6 +2,24 @@
   width: 1200px;
   margin: 100px auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  ol {
+    list-style: none;
+    flex: 1;
+    margin-left: 50px;
+    max-height: 600px;
+    overflow-y: auto;
+    h4 {
+      display: flex;
+      .tools {
+        min-width: 140px;
+        margin-left: auto;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
 }

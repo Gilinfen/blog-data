@@ -1,1 +1,129 @@
-[]
+[
+  {
+    "title": "Nano ID",
+    "href": "https://github.com/ai/nanoid",
+    "npm": "nanoid",
+    "npm-link": "https://www.npmjs.com/package/nanoid",
+    "description": [
+      "一个小巧、安全、URL友好、唯一的 JavaScript 字符串ID生成器。"
+    ],
+    "img": "https://camo.githubusercontent.com/c306d97014be1caa9a2a511a0ff4722d54a77b0b6c81a18c81113d6051408325/68747470733a2f2f61692e6769746875622e696f2f6e616e6f69642f6c6f676f2e737667"
+  },
+  {
+    "title": "Commander.js",
+    "href": "https://github.com/tj/commander.js",
+    "npm": "commander",
+    "npm-link": "https://www.npmjs.com/package/commander",
+    "description": ["完整的 node.js 命令行解决方案。"]
+  },
+  {
+    "title": "chalk",
+    "href": "https://github.com/chalk/chalk",
+    "npm": "chalk",
+    "npm-link": "https://www.npmjs.com/package/chalk",
+    "description": ["🖍终端字符串样式"],
+    "img": "https://github.com/chalk/chalk/raw/main/media/logo.svg"
+  },
+  {
+    "title": "Node.js: fs-extra",
+    "href": "https://github.com/jprichardson/node-fs-extra",
+    "npm": "fs-extra",
+    "npm-link": "https://www.npmjs.com/package/fs-extra",
+    "description": [
+      "Node.js: fs对象的额外方法，如copy()， remove()， mkdirs()",
+      "fs-extra添加了原生fs模块中不包含的文件系统方法，并为fs方法添加了promise支持。它还使用了graceful-fs来防止EMFILE错误。它应该是fs的替代品。"
+    ]
+  },
+  {
+    "title": "unbuild",
+    "href": "https://github.com/unjs/unbuild",
+    "npm": "unbuild",
+    "npm-link": "https://www.npmjs.com/package/unbuild",
+    "description": [
+      "基于rollup的打包器，支持 typescript 并生成 commonjs 和模块格式 + 类型声明。",
+      "优势比 Rollup 小快，create-vite 脚手架用的打包工具"
+    ]
+  },
+  {
+    "title": "rimraf",
+    "href": "https://github.com/isaacs/rimraf",
+    "npm": "rimraf",
+    "npm-link": "https://www.npmjs.com/package/rimraf",
+    "description": ["一个' rm -rf ' util用于nodejs"]
+  },
+  {
+    "title": "kolorist",
+    "href": "https://github.com/marvinhagemeister/kolorist",
+    "npm": "kolorist",
+    "npm-link": "https://www.npmjs.com/package/kolorist",
+    "description": ["一个小实用程序，用于为stdin/stdout着色"],
+    "img": "https://github.com/marvinhagemeister/kolorist/raw/main/.github/demo.png"
+  },
+  {
+    "title": "js-yaml",
+    "href": "https://github.com/nodeca/js-yaml",
+    "npm": "js-yaml",
+    "npm-link": "https://www.npmjs.com/package/js-yaml",
+    "description": ["JavaScript YAML解析器和转储器。非常快。"]
+  },
+  {
+    "title": "cross-spawn",
+    "href": "https://github.com/moxystudio/node-cross-spawn",
+    "npm": "cross-spawn",
+    "npm-link": "https://www.npmjs.com/package/cross-spawn",
+    "description": [
+      "一个跨平台的解决方案，以节点的产卵和产卵同步",
+      "在 node 中更轻松的执行 shell 命令"
+    ]
+  },
+  {
+    "title": "prompts",
+    "href": "https://github.com/terkelg/prompts",
+    "npm": "prompts",
+    "npm-link": "https://www.npmjs.com/package/prompts",
+    "description": ["轻量级，漂亮和用户友好的交互式提示"],
+    "img": "https://github.com/terkelg/prompts/raw/master/prompts.png"
+  },
+  {
+    "title": "husky",
+    "href": "https://github.com/typicode/husky",
+    "npm": "husky",
+    "npm-link": "https://www.npmjs.com/package/husky",
+    "description": ["Git hooks made easy 🐶 woof!"]
+  },
+  {
+    "title": "git-cz",
+    "href": "https://github.com/streamich/git-cz",
+    "npm": "git-cz",
+    "npm-link": "https://www.npmjs.com/package/git-cz",
+    "description": ["语义Git提交"],
+    "img": "https://user-images.githubusercontent.com/9773803/49760520-fa6c6f00-fcc4-11e8-84c4-80727f071487.png"
+  },
+  {
+    "title": "Pake",
+    "href": "https://github.com/tw93/pake",
+    "npm": "pake-cli",
+    "npm-link": "https://www.npmjs.com/package/pake-cli",
+    "description": ["很简单的用 Rust 打包网页生成很小的桌面 App"],
+    "img": "https://camo.githubusercontent.com/4225451910eb9b54bccaf2823ad6d7049f04edf3651ab8b4bbc2578cca30ce33/68747470733a2f2f67772e616c697061796f626a656374732e636f6d2f7a6f732f6b2f7a642f70616b652e676966"
+  },
+  {
+    "title": "React-Toastify",
+    "href": "https://github.com/fkhadra/react-toastify",
+    "npm": "react-toastify",
+    "npm-link": "https://www.npmjs.com/package/react-toastify",
+    "description": [
+      "React 通知变得容易🚀！",
+      "React-Toastify 允许您轻松地向您的应用程序添加通知"
+    ],
+    "img": "https://user-images.githubusercontent.com/5574267/130804494-a9d2d69c-f170-4576-b2e1-0bb7f13dd92d.gif"
+  },
+  {
+    "title": "Mafs",
+    "href": "https://mafs.dev/",
+    "npm": "mafs",
+    "npm-link": "https://www.npmjs.com/package/mafs",
+    "description": ["一个基于 React 的互动式数学图形组件库。"],
+    "img": "https://cdn.beekka.com/blogimg/asset/202301/bg2023010301.webp"
+  }
+]
