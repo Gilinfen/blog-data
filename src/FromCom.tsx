@@ -1,7 +1,9 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useState } from 'react'
 import { Button, Form, Input, Select, Space } from 'antd'
 import { Rule } from 'antd/es/form'
 import { nanoid } from 'nanoid'
+
+const { TextArea } = Input
 
 export type FormTypes = {
   label: string
@@ -13,7 +15,7 @@ export type FormTypes = {
   /**
    * 默认为 string
    */
-  tyoe: 'string' | 'array' | 'select'
+  tyoe: 'string' | 'array' | 'select' | 'textArea'
   options?: {
     label: string
     value: string
@@ -44,14 +46,14 @@ const SelectInput = memo<BaseInput>(({ value, onChange, item }) => {
 const ArrInput = memo<BaseInput>(({ value, onChange }) => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {((value ?? ['']) as string[]).map((item, i) => {
+      {(value as string[])?.map((item, i) => {
         return (
-          <div style={{ width: '100%', display: 'flex' }} key={nanoid()}>
+          <div style={{ width: '100%', display: 'flex' }} key={i}>
             <Input
               value={item}
               placeholder="请输入"
               allowClear
-              onChange={(e) => {
+              onChange={e => {
                 const newValue = [...value]
                 newValue[i] = e.target.value
                 onChange(newValue)
@@ -74,34 +76,13 @@ const ArrInput = memo<BaseInput>(({ value, onChange }) => {
       <div
         style={{
           width: '100%',
-          display: 'flex',
+          display: 'flex'
         }}
       >
-        <Button
-          block
-          onClick={() =>
-            onChange([
-              ...value,
-              {
-                id: nanoid(),
-                value: '',
-              },
-            ])
-          }
-        >
+        <Button block onClick={() => onChange([...(value ?? []), ''])}>
           添加
         </Button>
-        <Button
-          type="link"
-          onClick={() =>
-            onChange([
-              {
-                id: nanoid(),
-                value: '',
-              },
-            ])
-          }
-        >
+        <Button type="link" onClick={() => onChange([''])}>
           清空
         </Button>
       </div>
@@ -123,6 +104,14 @@ const StateInput = memo<{ item: FormTypes }>(({ item, ...args }) => {
     ),
     array: <ArrInput item={item} {...(args as Omit<BaseInput, 'item'>)} />,
     select: <SelectInput item={item} {...(args as Omit<BaseInput, 'item'>)} />,
+    textArea: (
+      <TextArea
+        {...args}
+        defaultValue={item.defaultValue}
+        allowClear
+        placeholder="请输入"
+      />
+    )
   }
   return Com[item.tyoe]
 })
@@ -131,24 +120,24 @@ const FormItems = memo(
   ({ data, dynamicCheck }: { data: FormTypes[]; dynamicCheck: boolean }) => {
     return (
       <>
-        {data.map((item) => {
+        {data.map(item => {
           const required = typeof item.required === 'undefined' || item.required
           const rules: Rule[] = []
           if (required) {
             rules.push({
               required: true,
-              message: `请输入${item.label}`,
+              message: `请输入${item.label}`
             })
           }
           if (item.tyoe === 'array' && required) {
             rules.push({
               validator(_, value: string[]) {
                 if (dynamicCheck) return Promise.resolve()
-                if (value.every((e) => e.length)) {
+                if (value.every(e => e.length)) {
                   return Promise.resolve()
                 }
                 return Promise.reject(new Error(`请输入${item.label}`))
-              },
+              }
             })
           }
           rules.push(...(item.rules ?? []))
@@ -175,11 +164,32 @@ const FromCom: React.FC<{
 }> = ({ data, value, onFinish }) => {
   const [form] = Form.useForm()
   const [dynamicCheck, setInit] = useState(true)
+  const onClear = useCallback(() => {
+    form.resetFields()
+    setInit(true)
+    const initValue = data.reduce((pre, item) => {
+      const types: {
+        [key in FormTypes['tyoe']]: any
+      } = {
+        array: item.defaultValue ?? [''],
+        string: item.defaultValue ?? void 0,
+        select: item.defaultValue ?? void 0,
+        textArea: item.defaultValue ?? void 0
+      }
+      return {
+        ...pre,
+        [item.name]: types[item.tyoe]
+      }
+    }, {})
+    form.setFieldsValue(initValue)
+  }, [data])
   useEffect(() => {
     if (value) {
       form.setFieldsValue(value)
+    } else {
+      onClear()
     }
-  }, [value])
+  }, [value, onClear])
   return (
     <Form
       name={nanoid()}
@@ -202,14 +212,7 @@ const FromCom: React.FC<{
           >
             Submit
           </Button>
-          <Button
-            onClick={() => {
-              form.resetFields()
-              setInit(true)
-            }}
-          >
-            Clear
-          </Button>
+          <Button onClick={onClear}>Clear</Button>
         </Space>
       </Form.Item>
     </Form>

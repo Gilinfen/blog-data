@@ -7,7 +7,7 @@ const wss = new WebSocket.Server({ port: 4000 })
 
 const dataFiles = {
   npm: './data/npm.json',
-  tools: './data/tools.json',
+  tools: './data/tools.json'
 }
 
 function readFile(type: MessageType['type']): any[] {
@@ -17,7 +17,7 @@ function readFile(type: MessageType['type']): any[] {
 
 function witleFiles(parms: DataParams, type: MessageType['type']) {
   const value = readFile(type)
-  const index = value.findIndex((e) => e.title === parms.title)
+  const index = value.findIndex(e => e.href === parms.href)
   if (index > -1) {
     value[index] = parms
     writeFileSync(dataFiles[type], JSON.stringify(value))
@@ -26,19 +26,33 @@ function witleFiles(parms: DataParams, type: MessageType['type']) {
   writeFileSync(dataFiles[type], JSON.stringify([parms, ...value]))
 }
 
-function deleteFile(title: string, type: MessageType['type']) {
+function deleteFile(href: string, type: MessageType['type']) {
   const value = readFile(type)
   writeFileSync(
     dataFiles[type],
-    JSON.stringify(value.filter((e: any) => e.title !== title))
+    JSON.stringify(value.filter((e: any) => e.href !== href))
   )
 }
 
-function updateFile(title: string, type: MessageType['type']) {
+function updateFile(href: string, type: MessageType['type']) {
   const res = readFile(type)
   return {
-    data: res.find((e) => e.title === title),
-    type,
+    data: res.find(e => e.href === href),
+    type
+  }
+}
+
+function convert(
+  type: MessageType['type'],
+  convertType: MessageType['type'],
+  href: string
+) {
+  const value = readFile(type)
+  const data = value.find(e => e.href === href)
+  if (data) {
+    witleFiles(data, convertType)
+    deleteFile(href, type)
+    return
   }
 }
 
@@ -47,10 +61,10 @@ function renterRes(parms: MessageType) {
 }
 
 // 监听连接事件
-wss.on('connection', (ws) => {
+wss.on('connection', ws => {
   console.log('---------- 客户端已连接 ----------')
   // 接收客户端消息
-  ws.on('message', (message) => {
+  ws.on('message', message => {
     const req = JSON.parse(message.toString('utf-8')) as unknown as MessageType
 
     switch (req.state) {
@@ -59,7 +73,7 @@ wss.on('connection', (ws) => {
           renterRes({
             data: readFile(req.type),
             state: req.state,
-            type: req.type,
+            type: req.type
           })
         )
         break
@@ -70,7 +84,7 @@ wss.on('connection', (ws) => {
         ws.send(
           renterRes({
             state: req.state,
-            type: req.type,
+            type: req.type
           })
         )
         break
@@ -84,9 +98,13 @@ wss.on('connection', (ws) => {
         ws.send(
           renterRes({
             ...res,
-            state: req.state,
+            state: req.state
           })
         )
+        break
+
+      case 'convert':
+        convert(req.type, req.data?.convertType, req.data?.href)
         break
 
       default:

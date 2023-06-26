@@ -1,16 +1,27 @@
 import FromCom, { FormTypes } from './FromCom'
 import './App.scss'
 import useSocket from './hooks/useSocket'
-import { useCallback, useEffect, useState } from 'react'
+import {
+  createContext,
+  memo,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
 import {
   Button,
   Divider,
+  Dropdown,
+  MenuProps,
   Popconfirm,
   Space,
   Tabs,
   Tooltip,
-  message,
+  message
 } from 'antd'
+import { SwapOutlined } from '@ant-design/icons'
 import { MessageType } from './interface'
 
 const items: Array<{
@@ -28,17 +39,17 @@ const items: Array<{
       {
         label: '名称',
         name: 'title',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: '官网/仓库',
         name: 'href',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: '描述',
         name: 'description',
-        tyoe: 'array',
+        tyoe: 'textArea'
       },
       {
         label: '系统',
@@ -48,29 +59,29 @@ const items: Array<{
         options: [
           {
             label: 'All',
-            value: 'all',
+            value: 'all'
           },
           {
             label: 'Mac',
-            value: 'mac',
+            value: 'mac'
           },
           {
             label: 'Linux',
-            value: 'linuc',
+            value: 'linuc'
           },
           {
             label: 'Windows',
-            value: 'windows',
-          },
-        ],
+            value: 'windows'
+          }
+        ]
       },
       {
         label: '图片',
         name: 'img',
         tyoe: 'string',
-        required: false,
-      },
-    ],
+        required: false
+      }
+    ]
   },
   {
     key: 'npm',
@@ -80,22 +91,22 @@ const items: Array<{
       {
         label: '名称',
         name: 'title',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: '官网/仓库',
         name: 'href',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: 'Npm',
         name: 'npm',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: 'Npm Link',
         name: 'npm-link',
-        tyoe: 'string',
+        tyoe: 'string'
       },
       {
         label: '语音/框架',
@@ -105,36 +116,37 @@ const items: Array<{
         options: [
           {
             label: 'All',
-            value: 'js',
+            value: 'js'
           },
           {
             label: 'React',
-            value: 'react',
+            value: 'react'
           },
           {
             label: 'Node',
-            value: 'node',
+            value: 'node'
           },
           {
             label: 'Vue',
-            value: 'vue',
-          },
-        ],
+            value: 'vue'
+          }
+        ]
       },
       {
         label: '描述',
         name: 'description',
-        tyoe: 'array',
+        tyoe: 'array'
       },
       {
         label: '图片',
         name: 'img',
         tyoe: 'string',
-        required: false,
-      },
-    ],
-  },
+        required: false
+      }
+    ]
+  }
 ]
+const Context = createContext<any>({})
 
 function App() {
   const [dataList, setDatalist] = useState([])
@@ -152,14 +164,14 @@ function App() {
         message.success('添加成功')
         send({
           type: res.type,
-          state: 'read',
+          state: 'read'
         })
         break
 
       case 'find':
-        setItems((state) => {
+        setItems(state => {
           const newState = [...state]
-          const val = newState.find((e) => e.type === res.type)
+          const val = newState.find(e => e.type === res.type)
           if (val) {
             val.formData = res.data
             return newState
@@ -174,14 +186,14 @@ function App() {
   }, [])
 
   const { send, link } = useSocket({
-    callback: onMessage,
+    callback: onMessage
   })
 
   useEffect(() => {
     if (link) {
       send({
         type: tabsKey,
-        state: 'read',
+        state: 'read'
       })
     }
   }, [link, tabsKey])
@@ -194,7 +206,7 @@ function App() {
     send({
       data,
       type,
-      state: 'find',
+      state: 'find'
     })
   }, [])
 
@@ -206,40 +218,77 @@ function App() {
     send({
       data,
       type,
-      state: 'del',
+      state: 'del'
     })
     message.success('Click on Yes')
     send({
       type,
-      state: 'read',
+      state: 'read'
     })
   }, [])
 
   const cancel = useCallback(() => {
     message.error('Click on No')
   }, [])
+
+  const convert = useCallback(
+    (
+      type: MessageType['type'],
+      convertType: MessageType['type'],
+      href: string
+    ) => {
+      send({
+        data: {
+          convertType,
+          href
+        },
+        type,
+        state: 'convert'
+      })
+    },
+    []
+  )
+
+  const ItemsTypeBut = memo(({ type }: { type: any }) => {
+    const data = useContext(Context)
+    return (
+      <Button type="link" onClick={() => convert(tabsKey, type, data.href)}>
+        {type}
+      </Button>
+    )
+  })
+
+  const ButItems: MenuProps['items'] = useMemo(
+    () =>
+      itemsState.map(e => ({
+        key: e.key,
+        label: <ItemsTypeBut type={e.type} />
+      })),
+    []
+  )
+
   return (
     <div className="layout">
       <Tabs
         defaultActiveKey={tabsKey}
         tabPosition="left"
-        items={itemsState.map((item) => {
+        items={itemsState.map(item => {
           return {
             key: item.key,
             label: item.label,
             children: (
               <FromCom
-                onFinish={(value) =>
+                onFinish={value =>
                   onFinish({
                     data: value,
                     state: 'update',
-                    type: item.type,
+                    type: item.type
                   })
                 }
                 value={item.formData}
                 data={item.value}
               />
-            ),
+            )
           }
         })}
         onChange={onChange}
@@ -252,7 +301,14 @@ function App() {
           return (
             <li key={item.title}>
               <h4>
-                <Tooltip placement="topLeft" title={item.description}>
+                <Tooltip
+                  placement="topLeft"
+                  title={
+                    typeof item.description === 'string'
+                      ? item.description
+                      : item.description.map((e: string) => <p>{e}</p>)
+                  }
+                >
                   <Space>
                     <div style={{ width: 30, textAlign: 'center' }}>
                       {i + 1}
@@ -265,12 +321,21 @@ function App() {
                 <div className="tools">
                   <Button
                     type="link"
-                    onClick={() => update(item.title, tabsKey)}
+                    onClick={() => update(item.href, tabsKey)}
                   >
                     编辑
                   </Button>
+                  <Context.Provider value={item}>
+                    <Dropdown
+                      menu={{ items: ButItems }}
+                      placement="bottom"
+                      arrow
+                    >
+                      <Button type="link" icon={<SwapOutlined />} />
+                    </Dropdown>
+                  </Context.Provider>
                   <Popconfirm
-                    title={`删除 ${tabsKey} - ${item.title}`}
+                    title={`删除`}
                     description={
                       <Space>
                         确定要删除
@@ -279,7 +344,7 @@ function App() {
                       </Space>
                     }
                     onCancel={cancel}
-                    onConfirm={() => confirm(item.title, tabsKey)}
+                    onConfirm={() => confirm(item.href, tabsKey)}
                     okText="Yes"
                     cancelText="No"
                   >

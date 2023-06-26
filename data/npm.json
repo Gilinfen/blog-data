@@ -1,5 +1,24 @@
 [
   {
+    "title": "dsa",
+    "href": "as",
+    "npm": "dsad",
+    "npm-link": "das",
+    "support": "js",
+    "description": ["dsad"]
+  },
+  {
+    "title": "dnd-kit",
+    "href": "https://github.com/clauderic/dnd-kit",
+    "npm": "@dnd-kit/core",
+    "npm-link": "https://www.npmjs.com/package/@dnd-kit/core",
+    "support": "react",
+    "description": [
+      "现代、轻量级、高性能、可访问且可扩展的 React 拖放工具包。"
+    ],
+    "img": "https://github.com/clauderic/dnd-kit/raw/master/.github/assets/dnd-kit-hero-banner.svg"
+  },
+  {
     "title": "Nano ID",
     "href": "https://github.com/ai/nanoid",
     "npm": "nanoid",
