@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 import { Button, Form, Input, Select, Space } from 'antd'
 import { Rule } from 'antd/es/form'
 import { nanoid } from 'nanoid'
+import { MenuOutlined } from '@ant-design/icons'
 
 const { TextArea } = Input
 
@@ -48,7 +49,16 @@ const ArrInput = memo<BaseInput>(({ value, onChange }) => {
     <Space direction="vertical" style={{ width: '100%' }}>
       {(value as string[])?.map((item, i) => {
         return (
-          <div style={{ width: '100%', display: 'flex' }} key={i}>
+          <div
+            style={{ width: '100%', display: 'flex', alignItems: 'center' }}
+            key={i}
+          >
+            <MenuOutlined
+              style={{
+                cursor: 'grab',
+                marginRight: '10px'
+              }}
+            />
             <Input
               value={item}
               placeholder="请输入"
@@ -160,10 +170,20 @@ const FormItems = memo(
 const FromCom: React.FC<{
   data: FormTypes[]
   value?: any
-  onFinish?: (values: any) => void
+  onFinish?: (values: any) => Promise<void>
 }> = ({ data, value, onFinish }) => {
+  const [formID, setFormID] = useState<string>()
   const [form] = Form.useForm()
   const [dynamicCheck, setInit] = useState(true)
+
+  useEffect(() => {
+    if (value) {
+      setFormID(value.id ?? nanoid())
+    } else {
+      setFormID(nanoid())
+    }
+  }, [value])
+
   const onClear = useCallback(() => {
     form.resetFields()
     setInit(true)
@@ -183,6 +203,7 @@ const FromCom: React.FC<{
     }, {})
     form.setFieldsValue(initValue)
   }, [data])
+
   useEffect(() => {
     if (value) {
       form.setFieldsValue(value)
@@ -192,13 +213,20 @@ const FromCom: React.FC<{
   }, [value, onClear])
   return (
     <Form
-      name={nanoid()}
+      name={formID}
       form={form}
       style={{ width: 600 }}
       labelCol={{ span: 4 }}
       wrapperCol={{ span: 20 }}
       initialValues={{ remember: true }}
-      onFinish={onFinish}
+      onFinish={async formValue => {
+        await onFinish?.({
+          ...formValue,
+          id: formID
+        })
+        onClear()
+        setFormID(void 0)
+      }}
       onChange={() => setInit(false)}
       autoComplete="off"
     >

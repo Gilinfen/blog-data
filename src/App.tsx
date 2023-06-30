@@ -1,5 +1,4 @@
 import FromCom, { FormTypes } from './FromCom'
-import './App.scss'
 import useSocket from './hooks/useSocket'
 import {
   createContext,
@@ -23,9 +22,36 @@ import {
 } from 'antd'
 import { SwapOutlined } from '@ant-design/icons'
 import { MessageType } from './interface'
+import { v4 } from 'uuid'
+import DragLink, { DragLinkProps } from './components/dragLink'
+import './App.scss'
+
+const defaultValue: FormTypes[] = [
+  {
+    label: '名称',
+    name: 'title',
+    tyoe: 'string'
+  },
+  {
+    label: '官网/仓库',
+    name: 'href',
+    tyoe: 'string'
+  },
+  {
+    label: '描述',
+    name: 'description',
+    tyoe: 'array'
+  },
+  {
+    label: '图片',
+    name: 'img',
+    tyoe: 'string',
+    required: false
+  }
+]
 
 const items: Array<{
-  key: string
+  key: MessageType['type']
   label: string
   value: FormTypes[]
   formData?: any
@@ -36,21 +62,7 @@ const items: Array<{
     label: `Tools`,
     type: 'tools',
     value: [
-      {
-        label: '名称',
-        name: 'title',
-        tyoe: 'string'
-      },
-      {
-        label: '官网/仓库',
-        name: 'href',
-        tyoe: 'string'
-      },
-      {
-        label: '描述',
-        name: 'description',
-        tyoe: 'textArea'
-      },
+      ...defaultValue,
       {
         label: '系统',
         name: 'os',
@@ -74,12 +86,6 @@ const items: Array<{
             value: 'windows'
           }
         ]
-      },
-      {
-        label: '图片',
-        name: 'img',
-        tyoe: 'string',
-        required: false
       }
     ]
   },
@@ -88,16 +94,7 @@ const items: Array<{
     label: `Npm`,
     type: 'npm',
     value: [
-      {
-        label: '名称',
-        name: 'title',
-        tyoe: 'string'
-      },
-      {
-        label: '官网/仓库',
-        name: 'href',
-        tyoe: 'string'
-      },
+      ...defaultValue,
       {
         label: 'Npm',
         name: 'npm',
@@ -131,25 +128,26 @@ const items: Array<{
             value: 'vue'
           }
         ]
-      },
-      {
-        label: '描述',
-        name: 'description',
-        tyoe: 'array'
-      },
-      {
-        label: '图片',
-        name: 'img',
-        tyoe: 'string',
-        required: false
       }
     ]
+  },
+  {
+    key: 'vscode',
+    label: 'Vscode',
+    type: 'vscode',
+    value: [...defaultValue]
   }
 ]
+
+interface DataListProps {
+  key: string
+  title: string
+}
+
 const Context = createContext<any>({})
 
 function App() {
-  const [dataList, setDatalist] = useState([])
+  const [dataList, setDatalist] = useState<any[]>([])
   const [tabsKey, setTabKey] = useState<MessageType['type']>('tools')
   const [itemsState, setItems] = useState(items)
 
@@ -161,11 +159,11 @@ function App() {
         break
 
       case 'update':
-        message.success('添加成功')
         send({
           type: res.type,
           state: 'read'
         })
+        message.success('导入成功')
         break
 
       case 'find':
@@ -178,6 +176,10 @@ function App() {
           }
           return [...state]
         })
+        break
+      case 'convert':
+        setDatalist(res.data)
+        message.success('切换成功')
         break
 
       default:
@@ -210,7 +212,7 @@ function App() {
     })
   }, [])
 
-  const onFinish = useCallback((data: MessageType) => {
+  const onFinish = useCallback(async (data: MessageType) => {
     send(data)
   }, [])
 
@@ -235,12 +237,12 @@ function App() {
     (
       type: MessageType['type'],
       convertType: MessageType['type'],
-      href: string
+      id: string
     ) => {
       send({
         data: {
           convertType,
-          href
+          id
         },
         type,
         state: 'convert'
@@ -249,22 +251,98 @@ function App() {
     []
   )
 
-  const ItemsTypeBut = memo(({ type }: { type: any }) => {
-    const data = useContext(Context)
-    return (
-      <Button type="link" onClick={() => convert(tabsKey, type, data.href)}>
-        {type}
-      </Button>
-    )
-  })
+  const ItemsTypeBut = memo(
+    ({ type, tabsKey }: { type: any; tabsKey: any }) => {
+      const data = useContext(Context)
+      return (
+        <Button type="link" onClick={() => convert(tabsKey, type, data.id)}>
+          {type}
+        </Button>
+      )
+    }
+  )
 
   const ButItems: MenuProps['items'] = useMemo(
     () =>
       itemsState.map(e => ({
         key: e.key,
-        label: <ItemsTypeBut type={e.type} />
+        label: <ItemsTypeBut type={e.type} tabsKey={tabsKey} />
       })),
-    []
+    [tabsKey]
+  )
+
+  const columns = useMemo<DragLinkProps<DataListProps>['columns']>(() => {
+    return [
+      {
+        key: 'sort',
+        width: 40
+      },
+      {
+        title: '名称',
+        dataIndex: 'title',
+        ellipsis: true,
+        render(_, item: any) {
+          return (
+            <Tooltip
+              placement="topLeft"
+              title={
+                typeof item.description === 'string'
+                  ? item.description
+                  : item.description.map((e: string) => <p key={v4()}>{e}</p>)
+              }
+            >
+              <a href={item.href} target="_blank">
+                {item.title}
+              </a>
+            </Tooltip>
+          )
+        }
+      },
+      {
+        title: '操作',
+        dataIndex: 'option',
+        width: '220px',
+        render(_, item: any) {
+          return [
+            <Button type="link" onClick={() => update(item.id, tabsKey)}>
+              编辑
+            </Button>,
+            <Context.Provider value={item}>
+              <Dropdown menu={{ items: ButItems }} placement="bottom" arrow>
+                <Button type="link" icon={<SwapOutlined />} />
+              </Dropdown>
+            </Context.Provider>,
+            <Popconfirm
+              title={`删除`}
+              description={
+                <Space>
+                  确定要删除
+                  <h4>{item.title}</h4>
+                  吗？
+                </Space>
+              }
+              onCancel={cancel}
+              onConfirm={() => confirm(item.id, tabsKey)}
+              okText="Yes"
+              cancelText="No"
+            >
+              <Button danger type="link">
+                DELETE
+              </Button>
+            </Popconfirm>
+          ]
+        }
+      }
+    ]
+  }, [dataList])
+
+  const dataSource = useMemo(
+    () =>
+      dataList.map((item, i) => ({
+        ...item,
+        key: i + 1
+      })),
+    [dataList]
   )
 
   return (
@@ -297,66 +375,7 @@ function App() {
         <Divider plain>
           <h2>{dataList.length}</h2>
         </Divider>
-        {dataList.map((item: any, i) => {
-          return (
-            <li key={item.title}>
-              <h4>
-                <Tooltip
-                  placement="topLeft"
-                  title={
-                    typeof item.description === 'string'
-                      ? item.description
-                      : item.description.map((e: string) => <p>{e}</p>)
-                  }
-                >
-                  <Space>
-                    <div style={{ width: 30, textAlign: 'center' }}>
-                      {i + 1}
-                    </div>
-                    <a href={item.href} target="_blank">
-                      {item.title}
-                    </a>
-                  </Space>
-                </Tooltip>
-                <div className="tools">
-                  <Button
-                    type="link"
-                    onClick={() => update(item.href, tabsKey)}
-                  >
-                    编辑
-                  </Button>
-                  <Context.Provider value={item}>
-                    <Dropdown
-                      menu={{ items: ButItems }}
-                      placement="bottom"
-                      arrow
-                    >
-                      <Button type="link" icon={<SwapOutlined />} />
-                    </Dropdown>
-                  </Context.Provider>
-                  <Popconfirm
-                    title={`删除`}
-                    description={
-                      <Space>
-                        确定要删除
-                        <h4>{item.title}</h4>
-                        吗？
-                      </Space>
-                    }
-                    onCancel={cancel}
-                    onConfirm={() => confirm(item.href, tabsKey)}
-                    okText="Yes"
-                    cancelText="No"
-                  >
-                    <Button danger type="link">
-                      DELETE
-                    </Button>
-                  </Popconfirm>
-                </div>
-              </h4>
-            </li>
-          )
-        })}
+        <DragLink<DataListProps> dataSource={dataSource} columns={columns} />
       </ol>
     </div>
   )

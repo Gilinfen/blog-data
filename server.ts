@@ -1,43 +1,41 @@
 import { readFileSync, writeFileSync } from 'fs'
 import WebSocket from 'ws'
 import { DataParams, MessageType } from './src/interface'
+import { v4 } from 'uuid'
 
 // 创建WebSocket服务器
 const wss = new WebSocket.Server({ port: 4000 })
 
-const dataFiles = {
-  npm: './data/npm.json',
-  tools: './data/tools.json'
-}
+const dataFiles = (type: MessageType['type']) => `./data/${type}.json`
 
 function readFile(type: MessageType['type']): any[] {
-  const value = readFileSync(dataFiles[type], 'utf-8') ?? '[]'
+  const value = readFileSync(dataFiles(type), 'utf-8') ?? '[]'
   return JSON.parse(value)
 }
 
 function witleFiles(parms: DataParams, type: MessageType['type']) {
   const value = readFile(type)
-  const index = value.findIndex(e => e.href === parms.href)
+  const index = value.findIndex(e => e.id === parms.id)
   if (index > -1) {
     value[index] = parms
-    writeFileSync(dataFiles[type], JSON.stringify(value))
+    writeFileSync(dataFiles(type), JSON.stringify(value))
     return
   }
-  writeFileSync(dataFiles[type], JSON.stringify([parms, ...value]))
+  writeFileSync(dataFiles(type), JSON.stringify([parms, ...value]))
 }
 
-function deleteFile(href: string, type: MessageType['type']) {
+function deleteFile(id: string, type: MessageType['type']) {
   const value = readFile(type)
   writeFileSync(
-    dataFiles[type],
-    JSON.stringify(value.filter((e: any) => e.href !== href))
+    dataFiles(type),
+    JSON.stringify(value.filter((e: any) => e.id !== id))
   )
 }
 
-function updateFile(href: string, type: MessageType['type']) {
+function updateFile(id: string, type: MessageType['type']) {
   const res = readFile(type)
   return {
-    data: res.find(e => e.href === href),
+    data: res.find(e => e.id === id),
     type
   }
 }
@@ -45,13 +43,13 @@ function updateFile(href: string, type: MessageType['type']) {
 function convert(
   type: MessageType['type'],
   convertType: MessageType['type'],
-  href: string
+  id: string
 ) {
   const value = readFile(type)
-  const data = value.find(e => e.href === href)
+  const data = value.find(e => e.id === id)
   if (data) {
     witleFiles(data, convertType)
-    deleteFile(href, type)
+    deleteFile(id, type)
     return
   }
 }
@@ -104,7 +102,14 @@ wss.on('connection', ws => {
         break
 
       case 'convert':
-        convert(req.type, req.data?.convertType, req.data?.href)
+        convert(req.type, req.data?.convertType, req.data?.id)
+        ws.send(
+          renterRes({
+            data: readFile(req.type),
+            state: req.state,
+            type: req.type
+          })
+        )
         break
 
       default:
