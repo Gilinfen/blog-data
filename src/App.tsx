@@ -141,6 +141,7 @@ const items: Array<{
 
 interface DataListProps {
   key: string
+  id: string
   title: string
 }
 
@@ -303,34 +304,36 @@ function App() {
         dataIndex: 'option',
         width: '220px',
         render(_, item: any) {
-          return [
-            <Button type="link" onClick={() => update(item.id, tabsKey)}>
-              编辑
-            </Button>,
-            <Context.Provider value={item}>
-              <Dropdown menu={{ items: ButItems }} placement="bottom" arrow>
-                <Button type="link" icon={<SwapOutlined />} />
-              </Dropdown>
-            </Context.Provider>,
-            <Popconfirm
-              title={`删除`}
-              description={
-                <Space>
-                  确定要删除
-                  <h4>{item.title}</h4>
-                  吗？
-                </Space>
-              }
-              onCancel={cancel}
-              onConfirm={() => confirm(item.id, tabsKey)}
-              okText="Yes"
-              cancelText="No"
-            >
-              <Button danger type="link">
-                DELETE
+          return (
+            <>
+              <Button type="link" onClick={() => update(item.id, tabsKey)}>
+                编辑
               </Button>
-            </Popconfirm>
-          ]
+              <Context.Provider value={item}>
+                <Dropdown menu={{ items: ButItems }} placement="bottom" arrow>
+                  <Button type="link" icon={<SwapOutlined />} />
+                </Dropdown>
+              </Context.Provider>
+              <Popconfirm
+                title={`删除`}
+                description={
+                  <Space>
+                    确定要删除
+                    <h4>{item.title}</h4>
+                    吗？
+                  </Space>
+                }
+                onCancel={cancel}
+                onConfirm={() => confirm(item.id, tabsKey)}
+                okText="Yes"
+                cancelText="No"
+              >
+                <Button danger type="link">
+                  DELETE
+                </Button>
+              </Popconfirm>
+            </>
+          )
         }
       }
     ]
@@ -375,7 +378,13 @@ function App() {
         <Divider plain>
           <h2>{dataList.length}</h2>
         </Divider>
-        <DragLink<DataListProps> dataSource={dataSource} columns={columns} />
+        <DragLink<DataListProps>
+          pageSize={dataList.length}
+          size="small"
+          showHeader={false}
+          dataSource={dataSource}
+          columns={columns}
+        />
       </ol>
     </div>
   )

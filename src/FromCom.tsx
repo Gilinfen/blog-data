@@ -1,8 +1,9 @@
-import React, { memo, useCallback, useEffect, useState } from 'react'
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
 import { Button, Form, Input, Select, Space } from 'antd'
 import { Rule } from 'antd/es/form'
 import { nanoid } from 'nanoid'
-import { MenuOutlined } from '@ant-design/icons'
+import DragLink, { DragLinkProps } from './components/dragLink'
+import styles from './form.module.scss'
 
 const { TextArea } = Input
 
@@ -44,45 +45,98 @@ const SelectInput = memo<BaseInput>(({ value, onChange, item }) => {
   )
 })
 
+interface DataListProps {
+  key: number
+  id: string
+  value: string
+}
+
 const ArrInput = memo<BaseInput>(({ value, onChange }) => {
-  return (
-    <Space direction="vertical" style={{ width: '100%' }}>
-      {(value as string[])?.map((item, i) => {
-        return (
-          <div
-            style={{ width: '100%', display: 'flex', alignItems: 'center' }}
-            key={i}
-          >
-            <MenuOutlined
-              style={{
-                cursor: 'grab',
-                marginRight: '10px'
-              }}
-            />
+  const [dataSource, setDataSource] = useState<DataListProps[]>([
+    {
+      key: 1,
+      id: nanoid(),
+      value: ''
+    }
+  ])
+
+  useEffect(() => {
+    if (value) {
+      setDataSource(
+        (value as string[]).map((v, i) => {
+          return {
+            key: i + 1,
+            id: nanoid(),
+            value: v
+          }
+        })
+      )
+    }
+  }, [value])
+
+  const columns = useMemo<DragLinkProps<DataListProps>['columns']>(() => {
+    return [
+      {
+        key: 'sort',
+        width: 40
+      },
+      {
+        dataIndex: 'value',
+        render(_, __, index) {
+          return (
             <Input
-              value={item}
+              value={_}
               placeholder="请输入"
               allowClear
               onChange={e => {
                 const newValue = [...value]
-                newValue[i] = e.target.value
+                newValue[index] = e.target.value
                 onChange(newValue)
               }}
             />
+          )
+        }
+      },
+      {
+        title: '操作',
+        dataIndex: 'option',
+        width: '80px',
+        render(_, __, index) {
+          return (
             <Button
               type="link"
               onClick={() => {
                 if (value.length <= 1) return
                 const newValue = [...value]
-                newValue.splice(i, 1)
+                newValue.splice(index, 1)
                 onChange(newValue)
               }}
             >
               删除
             </Button>
-          </div>
-        )
-      })}
+          )
+        }
+      }
+    ]
+  }, [value])
+
+  const sortChange = useCallback(
+    (val: DataListProps[]) => {
+      onChange(val.map(e => e.value))
+    },
+    [onChange]
+  )
+
+  return (
+    <Space direction="vertical" style={{ width: '100%' }}>
+      <DragLink<DataListProps>
+        pageSize={dataSource.length}
+        sortChange={sortChange}
+        showHeader={false}
+        size="small"
+        dataSource={dataSource}
+        columns={columns}
+      />
       <div
         style={{
           width: '100%',
@@ -157,6 +211,7 @@ const FormItems = memo(
               label={item.label}
               name={item.name}
               rules={rules}
+              className={item.tyoe === 'array' ? styles['arr-input'] : ''}
             >
               <StateInput item={item} />
             </Form.Item>
@@ -229,6 +284,7 @@ const FromCom: React.FC<{
       }}
       onChange={() => setInit(false)}
       autoComplete="off"
+      className={styles.root}
     >
       <FormItems data={data} dynamicCheck={dynamicCheck} />
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

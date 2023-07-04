@@ -1,0 +1,16 @@
+.arr-input {
+  :global {
+    .ant-form-item-control-input-content {
+      margin-top: -23px;
+      .ant-table-cell {
+        border: none;
+      }
+      .ant-empty-normal {
+        visibility: hidden;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

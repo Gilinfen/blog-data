@@ -10,7 +10,7 @@ import {
 } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { Table } from 'antd'
-import type { ColumnsType } from 'antd/es/table'
+import type { ColumnsType, TableProps } from 'antd/es/table'
 import React, { useEffect, useState } from 'react'
 
 interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
@@ -59,18 +59,24 @@ const Row = ({ children, ...props }: RowProps) => {
 
 export type DragLinkProps<DataSource> = {
   columns: ColumnsType<DataSource>
+  sortChange?: (value: DataSource[]) => void
   dataSource: DataSource[]
+  pageSize: number
 }
 
 const DragLink = <
   DataSource extends {
-    key: string
+    key: string | number
+    id: string
     [key: string]: any
   }
 >({
   dataSource: data,
-  columns
-}: DragLinkProps<DataSource>) => {
+  columns,
+  sortChange,
+  pageSize,
+  ...agrs
+}: DragLinkProps<DataSource> & TableProps<DataSource>) => {
   const [dataSource, setDataSource] = useState(data)
 
   useEffect(() => {
@@ -82,7 +88,9 @@ const DragLink = <
       setDataSource(previous => {
         const activeIndex = previous.findIndex(i => i.key === active.id)
         const overIndex = previous.findIndex(i => i.key === over?.id)
-        return arrayMove(previous, activeIndex, overIndex)
+        const sortValue = arrayMove(previous, activeIndex, overIndex)
+        sortChange?.(sortValue)
+        return sortValue
       })
     }
   }
@@ -95,13 +103,15 @@ const DragLink = <
         strategy={verticalListSortingStrategy}
       >
         <Table
+          {...agrs}
           components={{
             body: {
               row: Row
             }
           }}
           pagination={{
-            position: ['none'] as any[]
+            position: ['none'] as any[],
+            pageSize
           }}
           rowKey="key"
           columns={columns}
