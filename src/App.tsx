@@ -356,30 +356,35 @@ function App() {
 
   return (
     <div className="layout">
-      <Tabs
-        defaultActiveKey={tabsKey}
-        tabPosition="left"
-        items={itemsState.map(item => {
-          return {
-            key: item.key,
-            label: item.label,
-            children: (
-              <FromCom
-                onFinish={value =>
-                  onFinish({
-                    data: value,
-                    state: 'update',
-                    type: item.type
-                  })
-                }
-                value={item.formData}
-                data={item.value}
-              />
-            )
-          }
-        })}
-        onChange={onChange}
-      />
+      <div>
+        <Divider plain>
+          <h2> {tabsKey.toLocaleUpperCase()} </h2>
+        </Divider>
+        <Tabs
+          defaultActiveKey={tabsKey}
+          tabPosition="left"
+          items={itemsState.map(item => {
+            return {
+              key: item.key,
+              label: item.label,
+              children: (
+                <FromCom
+                  onFinish={value =>
+                    onFinish({
+                      data: value,
+                      state: 'update',
+                      type: item.type
+                    })
+                  }
+                  value={item.formData}
+                  data={item.value}
+                />
+              )
+            }
+          })}
+          onChange={onChange}
+        />
+      </div>
       <ol>
         <Divider plain>
           <h2>{dataList.length}</h2>
