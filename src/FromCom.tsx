@@ -280,7 +280,7 @@ const FromCom: React.FC<{
           id: formID
         })
         onClear()
-        setFormID(void 0)
+        setFormID(nanoid())
       }}
       onChange={() => setInit(false)}
       autoComplete="off"

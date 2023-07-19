@@ -47,6 +47,12 @@ const defaultValue: FormTypes[] = [
     name: 'img',
     tyoe: 'string',
     required: false
+  },
+  {
+    label: '视频',
+    name: 'video',
+    tyoe: 'string',
+    required: false
   }
 ]
 
