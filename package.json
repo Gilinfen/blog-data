@@ -1,6 +1,9 @@
 {
   "name": "blog-data",
   "version": "1.0.0",
+  "workspaces": [
+    "web/*"
+  ],
   "scripts": {
     "start": "ts-node --project ./tsconfig.base.json ./scripts/start",
     "dev": "vite",
@@ -37,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react": "^4.0.0",
+    "cross-env": "^7.0.3",
     "cross-spawn": "^7.0.3",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",

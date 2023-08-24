@@ -1,0 +1,32 @@
+.root {
+  max-width: 740px;
+  padding: 0 1rem;
+  margin: 0 auto;
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  :global {
+    .tools-header {
+      display: flex;
+      h1 {
+        margin-right: 0.5rem;
+      }
+      .header-item {
+        cursor: pointer;
+      }
+      .header-active {
+        color: var(--g-active-color);
+      }
+    }
+    .tools-main {
+      .tools-item {
+        img {
+          max-width: 740px;
+          width: 100%;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
