@@ -1,5 +1,6 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react'
-import { Button, Form, Input, Select, Space } from 'antd'
+import { Button, DatePicker, Form, Input, Select, Space } from 'antd'
+import dayjs from 'dayjs'
 import { Rule } from 'antd/es/form'
 import { nanoid } from 'nanoid'
 import DragLink, { DragLinkProps } from './components/dragLink'
@@ -17,7 +18,7 @@ export type FormTypes = {
   /**
    * 默认为 string
    */
-  tyoe: 'string' | 'array' | 'select' | 'textArea'
+  tyoe: 'string' | 'array' | 'select' | 'textArea' | 'date'
   options?: {
     label: string
     value: string
@@ -154,6 +155,19 @@ const ArrInput = memo<BaseInput>(({ value, onChange }) => {
   )
 })
 
+const DateCom = memo<BaseInput>(({ value, ...args }) => {
+  return (
+    <DatePicker
+      {...args}
+      value={dayjs(value ?? new Date())}
+      style={{
+        width: '100%'
+      }}
+      placeholder="请选择"
+    />
+  )
+})
+
 const StateInput = memo<{ item: FormTypes }>(({ item, ...args }) => {
   const Com: {
     [key in FormTypes['tyoe']]: any
@@ -166,6 +180,7 @@ const StateInput = memo<{ item: FormTypes }>(({ item, ...args }) => {
         placeholder="请输入"
       />
     ),
+    date: <DateCom item={item} {...(args as Omit<BaseInput, 'item'>)} />,
     array: <ArrInput item={item} {...(args as Omit<BaseInput, 'item'>)} />,
     select: <SelectInput item={item} {...(args as Omit<BaseInput, 'item'>)} />,
     textArea: (
@@ -249,7 +264,8 @@ const FromCom: React.FC<{
         array: item.defaultValue ?? [''],
         string: item.defaultValue ?? void 0,
         select: item.defaultValue ?? void 0,
-        textArea: item.defaultValue ?? void 0
+        textArea: item.defaultValue ?? void 0,
+        date: item.defaultValue ?? void 0
       }
       return {
         ...pre,

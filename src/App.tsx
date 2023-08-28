@@ -38,6 +38,11 @@ const defaultValue: FormTypes[] = [
     tyoe: 'string'
   },
   {
+    label: '时间',
+    name: 'date',
+    tyoe: 'date'
+  },
+  {
     label: '描述',
     name: 'description',
     tyoe: 'array'
