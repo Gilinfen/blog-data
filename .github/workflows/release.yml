@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'
+      - 'release-v*'
 
 # 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
 env:
