@@ -8,7 +8,9 @@
     "start": "ts-node --project ./tsconfig.base.json ./scripts/start",
     "dev": "vite",
     "node": "nodemon ./server",
-    "build": "tsc && vite build",
+    "build": "cd ./web && pnpm build",
+    "dor": "docker buildx build --platform linux/amd64 -t registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data . --load",
+    "dor:push": "docker push registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "husky install",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
