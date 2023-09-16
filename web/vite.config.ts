@@ -14,6 +14,6 @@ export default defineConfig({
       useDevMode: true
     }),
     compression()
-  ]
-  // base: env === 'dev' ? 'http://127.0.0.1:5500/' : `/${packageName}/`
+  ],
+  base: env === 'dev' ? 'http://127.0.0.1:5500/' : `/${packageName}/`
 })
