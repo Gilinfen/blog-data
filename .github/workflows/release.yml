@@ -35,7 +35,7 @@ jobs:
           PRIVATE_KEY: ${{ secrets.ALY_SERVER_KEY }}
           SERVER: ${{ secrets.SERVER_ADDRESS }}
         run: |
-          echo "$PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          ssh -i private_key -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data reStart'
-          rm -f private_key
+          echo "$PRIVATE_KEY" > private_key.pem
+          chmod 600 private_key.pem
+          ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data reStart'
+          rm -f private_key.pem
