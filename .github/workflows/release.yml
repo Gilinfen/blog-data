@@ -12,16 +12,6 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18.x
-
-      - run: npx changelogithub
-
       # 登录到私有的Docker仓库
       - name: Login to private Docker registry
         uses: docker/login-action@v1
@@ -37,3 +27,13 @@ jobs:
       # 推送Docker镜像到私有仓库
       - name: Push Docker image
         run: docker push registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data
+
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - run: npx changelogithub
