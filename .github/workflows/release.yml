@@ -15,19 +15,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2 # 使用 v2 版本
 
-      - name: Login to private Docker registry
-        uses: docker/login-action@v1
-        with:
-          registry: registry.cn-shanghai.aliyuncs.com
-          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
-          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+      # - name: Login to private Docker registry
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: registry.cn-shanghai.aliyuncs.com
+      #     username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+      #     password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
 
-      - name: Build Docker image
-        run: docker build -t registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data .
+      # - name: Build Docker image
+      #   run: docker build -t registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data .
 
-      # 推送Docker镜像到私有仓库
-      - name: Push Docker image
-        run: docker push registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data
+      # # 推送Docker镜像到私有仓库
+      # - name: Push Docker image
+      #   run: docker push registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data
 
       # 登录服务器
       - name: Setup SSH Key and Connect
@@ -36,6 +36,7 @@ jobs:
           SERVER: ${{ secrets.SERVER_ADDRESS }}
         run: |
           echo "$PRIVATE_KEY" > private_key.pem
+          ssh-keygen -p -m PEM -f private_key.pem
           chmod 600 private_key.pem
           ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data reStart'
           rm -f private_key.pem
