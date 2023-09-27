@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - 'release-v*'
+      - 'v*'
 
 env:
   GITHUB_TOKEN: ${{ secrets.CLASH_TOKEN  }}
