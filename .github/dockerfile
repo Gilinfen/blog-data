@@ -1,14 +1,18 @@
 FROM ubuntu:latest
 
-# 安装 SSH 客户端
+# 安装必要的软件包
 RUN apt-get update && apt-get install -y openssh-client && rm -rf /var/lib/apt/lists/*
+
+# 设置环境变量
+ENV COMMAND_NAME=glinfen-blog-data
+ENV COMMAND_ACTION=reStart
 
 # 写入脚本
 RUN echo "#!/bin/bash\n\
   \n\
   # 检查环境变量是否存在\n\
-  if [ -z \"\$PRIVATE_KEY\" ] || [ -z \"\$SERVER\" ]; then\n\
-  echo \"Error: PRIVATE_KEY and SERVER environment variables are required!\"\n\
+  if [ -z \"\$PRIVATE_KEY\" ] || [ -z \"\$SERVER\" ] || [ -z \"\$COMMAND_NAME\" ] || [ -z \"\$COMMAND_ACTION\" ]; then\n\
+  echo \"Error: PRIVATE_KEY, SERVER, COMMAND_NAME, and COMMAND_ACTION environment variables are required!\"\n\
   exit 1\n\
   fi\n\
   \n\
@@ -18,7 +22,7 @@ RUN echo "#!/bin/bash\n\
   chmod 600 private_key.pem\n\
   \n\
   # 运行 SSH 命令\n\
-  ssh -i private_key.pem -o StrictHostKeyChecking=no root@\$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data stop'\n\
+  ssh -i private_key.pem -o StrictHostKeyChecking=no root@\$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev \$COMMAND_NAME \$COMMAND_ACTION'\n\
   \n\
   # 删除私钥文件\n\
   rm -f private_key.pem" > /start.sh \
