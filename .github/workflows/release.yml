@@ -36,3 +36,7 @@ jobs:
           SERVER: ${{ secrets.SERVER_ADDRESS }}
         run: |
           printf "%s" "$PRIVATE_KEY" > private_key.pem
+          chmod 400 private_key.pem
+          ls -l private_key.pem  # 确认文件权限是否已经正确设置
+          ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data reStart'
+          rm -f private_key.pem
