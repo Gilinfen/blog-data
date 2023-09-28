@@ -36,5 +36,5 @@ jobs:
           SERVER: ${{ secrets.SERVER_ADDRESS }}
         run: |
           printf "%s" "$PRIVATE_KEY" > private_key.pem
-          ssh-keygen -p -m PEM -N "" -f private_key.pem
           chmod 600 private_key.pem
+          ssh-keygen -p -m PEM -N "" -f private_key.pem
