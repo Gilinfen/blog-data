@@ -1,0 +1,11 @@
+FROM ubuntu:latest
+
+# 安装 SSH 客户端
+RUN apt-get update && apt-get install -y openssh-client && rm -rf /var/lib/apt/lists/*
+
+# 将启动脚本复制到镜像中
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# 定义容器启动时应运行的命令
+CMD ["/start.sh"]
