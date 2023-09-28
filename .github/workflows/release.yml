@@ -37,5 +37,3 @@ jobs:
         run: |
           printf "%s" "$PRIVATE_KEY" > private_key.pem
           ssh-keygen -p -m PEM -N "" -f private_key.pem
-          chmod 400 private_key.pem
-          ls -l private_key.pem  # 确认文件权限是否已经正确设置
