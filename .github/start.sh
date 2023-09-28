@@ -12,7 +12,7 @@ ssh-keygen -p -m PEM -f private_key.pem
 chmod 600 private_key.pem
 
 # 运行 SSH 命令
-ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data reStop'
+ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data stop'
 
 # 删除私钥文件
 rm -f private_key.pem
