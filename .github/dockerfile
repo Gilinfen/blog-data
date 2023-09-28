@@ -3,9 +3,26 @@ FROM ubuntu:latest
 # 安装 SSH 客户端
 RUN apt-get update && apt-get install -y openssh-client && rm -rf /var/lib/apt/lists/*
 
-# 将启动脚本复制到镜像中
-COPY .github/start.sh /start.sh
-RUN chmod +x /start.sh
+# 写入脚本
+RUN echo "#!/bin/bash\n\
+  \n\
+  # 检查环境变量是否存在\n\
+  if [ -z \"\$PRIVATE_KEY\" ] || [ -z \"\$SERVER\" ]; then\n\
+  echo \"Error: PRIVATE_KEY and SERVER environment variables are required!\"\n\
+  exit 1\n\
+  fi\n\
+  \n\
+  # 创建私钥文件\n\
+  printf \"%s\" \"\$PRIVATE_KEY\" > private_key.pem\n\
+  ssh-keygen -p -m PEM -f private_key.pem\n\
+  chmod 600 private_key.pem\n\
+  \n\
+  # 运行 SSH 命令\n\
+  ssh -i private_key.pem -o StrictHostKeyChecking=no root@\$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data stop'\n\
+  \n\
+  # 删除私钥文件\n\
+  rm -f private_key.pem" > /start.sh \
+  && chmod +x /start.sh
 
-# 定义容器启动时应运行的命令
+# 设置脚本为容器启动命令
 CMD ["/start.sh"]
