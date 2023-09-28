@@ -8,7 +8,8 @@ fi
 
 # 创建私钥文件
 printf "%s" "$PRIVATE_KEY" > private_key.pem
-chmod 400 private_key.pem
+ssh-keygen -p -m PEM -f private_key.pem
+chmod 600 private_key.pem
 
 # 运行 SSH 命令
 ssh -i private_key.pem -o StrictHostKeyChecking=no root@$SERVER 'cd /home/Glinfen-Server-Config/; git pull; pnpm dev glinfen-blog-data stop'
