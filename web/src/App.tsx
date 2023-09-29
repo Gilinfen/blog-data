@@ -72,6 +72,16 @@ const MemoImg = memo(({ title, img }: { title: string; img: string }) => {
   )
 })
 
+const ArrayImage = memo(
+  ({ img, title }: { img?: string | string[]; title: string }) => {
+    if (typeof img === 'string') {
+      return <MemoImg title={title} img={img} />
+    } else if (img) {
+      return img.map(item => <MemoImg key={item} title={title} img={item} />)
+    }
+  }
+)
+
 const ToolsItem = memo((props: ToolsItemType) => {
   const { title, href, description, img, support } = props
   const { npm, 'npm-link': npm_link } = props as NpmData
@@ -100,7 +110,7 @@ const ToolsItem = memo((props: ToolsItemType) => {
           ))}
         </>
       )}
-      {img && <MemoImg title={title} img={img} />}
+      <ArrayImage img={img} title={title} />
     </div>
   )
 })

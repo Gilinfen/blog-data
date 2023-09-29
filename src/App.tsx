@@ -50,7 +50,7 @@ const defaultValue: FormTypes[] = [
   {
     label: '图片',
     name: 'img',
-    tyoe: 'string',
+    tyoe: 'array',
     required: false
   },
   {

@@ -52,7 +52,8 @@ interface DataListProps {
   value: string
 }
 
-const ArrInput = memo<BaseInput>(({ value, onChange }) => {
+const ArrInput = memo<BaseInput>(({ value: strVal, onChange }) => {
+  const value = typeof strVal === 'string' ? [strVal] : strVal
   const [dataSource, setDataSource] = useState<DataListProps[]>([
     {
       key: 1,
