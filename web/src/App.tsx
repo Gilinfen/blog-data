@@ -119,7 +119,7 @@ function App() {
   const [list, setList] = useState<(typeof data)[number]['value'][number][]>(
     data[0].value
   )
-  const [type, setType] = useState<GetToolsType>('npm')
+  const [type, setType] = useState<GetToolsType>('tools')
 
   return (
     <div className={styles.root}>
