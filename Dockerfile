@@ -1,4 +1,4 @@
-FROM node:alpine AS builder
+FROM node:18.16.0-alpine AS builder
 
 # 设置淘宝镜像
 RUN npm config set registry https://registry.npm.taobao.org
