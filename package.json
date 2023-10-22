@@ -6,8 +6,7 @@
   ],
   "scripts": {
     "start": "ts-node --project ./tsconfig.base.json ./scripts/start",
-    "dev": "vite",
-    "devw": "cd ./web && pnpm dev",
+    "dev": "cd ./web && pnpm dev",
     "node": "nodemon ./server",
     "build": "cd ./web && pnpm build",
     "dor": "docker buildx build --platform linux/amd64 -t registry.cn-shanghai.aliyuncs.com/glinfen/glinfen-blog-data . --load",

@@ -117,7 +117,7 @@ const ToolsItem = memo((props: ToolsItemType) => {
 
 function App() {
   const [list, setList] = useState<(typeof data)[number]['value'][number][]>(
-    data[0].value
+    data[1].value
   )
   const [type, setType] = useState<GetToolsType>('tools')
 

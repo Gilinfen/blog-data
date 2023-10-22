@@ -1,8 +1,8 @@
 import spawn from 'cross-spawn'
 
 spawn('pnpm', ['node'], {
-  stdio: 'inherit',
+  stdio: 'inherit'
 })
-spawn('pnpm', ['dev'], {
-  stdio: 'inherit',
+spawn('pnpm', ['vite'], {
+  stdio: 'inherit'
 })
