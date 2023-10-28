@@ -76,7 +76,7 @@ const ArrayImage = memo(
   ({ img, title }: { img?: string | string[]; title: string }) => {
     if (typeof img === 'string') {
       return <MemoImg title={title} img={img} />
-    } else if (img) {
+    } else if (img && img.some(e => e)) {
       return img.map(item => <MemoImg key={item} title={title} img={item} />)
     }
   }
