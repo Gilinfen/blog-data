@@ -12,6 +12,7 @@ type ToolsData = {
   description: string | string[]
   img?: string
   support?: string
+  video?: string
 }
 
 type NpmData = {
@@ -77,14 +78,31 @@ const ArrayImage = memo(
     if (typeof img === 'string') {
       return <MemoImg title={title} img={img} />
     } else if (img && img.some(e => e)) {
-      return img.map(item => <MemoImg key={item} title={title} img={item} />)
+      return img.map((item, i) => <MemoImg key={i} title={title} img={item} />)
     }
   }
 )
 
+const Video = memo(
+  (
+    props: React.DetailedHTMLProps<
+      React.VideoHTMLAttributes<HTMLVideoElement>,
+      HTMLVideoElement
+    >
+  ) => {
+    const { src } = props
+    return (
+      <video playsInline controls>
+        <source src={src} />
+      </video>
+    )
+  }
+)
+
 const ToolsItem = memo((props: ToolsItemType) => {
-  const { title, href, description, img, support } = props
+  const { title, href, description, img, support, id } = props
   const { npm, 'npm-link': npm_link } = props as NpmData
+  const { video } = props as ToolsData
 
   return (
     <div className="tools-item">
@@ -105,12 +123,13 @@ const ToolsItem = memo((props: ToolsItemType) => {
         <p>{description}</p>
       ) : (
         <>
-          {description.map((item, i) => (
-            <p key={i}>{item}</p>
+          {description.map(item => (
+            <p key={item}>{item}</p>
           ))}
         </>
       )}
       <ArrayImage img={img} title={title} />
+      {video && <Video src={video} />}
     </div>
   )
 })
@@ -126,7 +145,7 @@ function App() {
       <header className="tools-header">
         {data.map((item, i) => (
           <h1
-            key={i}
+            key={item.label}
             className={clsx(
               type === item.label ? 'header-active' : '',
               'header-item'
@@ -142,7 +161,7 @@ function App() {
       </header>
       <main className="tools-main">
         {list.map(item => (
-          <ToolsItem key={item.id} {...item} />
+          <ToolsItem {...item} key={item.id} />
         ))}
       </main>
     </div>

@@ -1,1 +1,277 @@
-[{"title":"Vetur","href":"https://marketplace.visualstudio.com/items?itemName=octref.vetur","description":["vue 代码高亮"],"id":"a79284d1-f142-410e-b91d-2be7b0301a60"},{"title":"koroFileHeader","href":"https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader","description":["VSCode插件: 用于一键生成文件头部注释并自动更新最后编辑人和编辑时间、函数注释自动生成和参数提取。"],"img":"https://raw.githubusercontent.com/OBKoro1/koro1FileHeader/master/images/example.gif","id":"6b174078-505a-44b6-b839-7192028c26b5"},{"title":"Tailwind CSS IntelliSense","href":"https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss","description":["Tailwind CSS IntelliSense 通过为 Visual Studio Code 用户提供自动完成、语法突出显示和 linting 等高级功能来增强 Tailwind 开发体验。"],"img":"https://raw.githubusercontent.com/bradlc/vscode-tailwindcss/master/packages/vscode-tailwindcss/.github/autocomplete.png","id":"c0bf669d-3368-46e0-b846-c71261623813"},{"title":"Stylelint","href":"https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint","description":["Stylelint的官方Visual Studio Code扩展"],"img":"https://github.com/stylelint/vscode-stylelint/raw/HEAD/media/screenshot.png","id":"6eac1829-f17d-4f3d-8822-41a97d19db57"},{"title":"Prettier ESLint","href":"https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint","description":["一个 Visual Studio Code 扩展，用于使用prettier-eslint包格式化 JavaScript 和 TypeScript 代码。"],"img":"https://user-images.githubusercontent.com/10620169/119163604-c9a5cd80-ba18-11eb-91af-fe4d2efe8567.png","id":"f14b80a3-6c2a-4fe5-92cc-c54efd89b21d"},{"title":"Prettier - Code formatter","href":"https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode","description":["Prettier是一个固执己见的代码格式化程序。它通过解析代码并使用自己的规则重新打印代码（考虑最大行长度）来强制执行一致的样式，并在必要时包装代码。"],"img":"https://www.wisdomgeek.com/wp-content/uploads/2018/02/prettier.png","id":"8c7b44f9-6648-4029-ab53-32144a7aa2d0"},{"title":"Path Intellisense","href":"https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense","description":["自动完成文件名的 Visual Studio Code 插件。"],"img":"https://i.giphy.com/iaHeUiDeTUZuo.gif","id":"5c8e4568-8e06-4a0d-bb61-3e8d9a61fc76"},{"title":"NGINX Configuration","href":"https://marketplace.visualstudio.com/items?itemName=william-voyek.vscode-nginx","description":["vscode 的 NGINX 配置文件语法高亮"],"id":"3dcdeb4b-2b10-4a40-8c18-aa15ce4eac98"},{"title":"nginx-format","href":"https://marketplace.visualstudio.com/items?itemName=teclado.vscode-nginx-format","description":["nginx 配置文件的格式化程序"],"img":"https://github.com/saper150/vscode-nginx-format/raw/master/img/preview.gif","id":"44899723-3a9e-4f9f-9270-3669098e714d"},{"title":"Material Icon Theme","href":"https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme","description":["将 Material Design 图标放入您的 VS Code 中。"],"img":"https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/fileIcons.png","id":"dc2f0c48-faaa-4cfb-9eab-616d4bb8d296"},{"title":"markdownlint","href":"https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint","description":["Visual Studio Code 的 Markdown/CommonMark linting 和样式检查"],"id":"a2e43e9c-2305-4ba5-ac38-50656d1df68c"},{"title":"Markdown Preview Enhanced","href":"https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced","description":["Markdown 预览"],"img":"https://user-images.githubusercontent.com/1908863/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png","id":"b5e524f9-c507-42a2-9077-8b38b3a0fd90"},{"title":"Live Server","href":"https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer","description":["Live Server 用于服务器端页面"],"img":"https://github.com/ritwickdey/vscode-live-server/raw/HEAD/images/Screenshot/vscode-live-server-animated-demo.gif","id":"a7dfdfa9-a76b-41a3-956c-bbeb95a9fe00"},{"title":"JavaScript and TypeScript Nightly","href":"https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next","description":["VS Code 扩展，支持夜间构建 TypeScript ( typescript@next) 作为 VS Code 的内置 TypeScript 版本，用于支持 JavaScript 和 TypeScript IntelliSense。"],"id":"276ca110-d449-43e8-9d1e-f1897ea360a9"},{"title":"JavaScript (ES6) code snippets","href":"https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets","description":["此扩展包含Vs Code编辑器的 ES6 语法中的 JavaScript 代码片段（支持 JavaScript 和 TypeScript）。"],"id":"6b7f7250-ae43-47a4-abcc-93a05dec3fd8"},{"title":"IntelliSense for CSS class names in HTML","href":"https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion","description":["class一个 Visual Studio Code 扩展，它根据工作区中找到的定义或通过元素引用的外部文件为 HTML 属性提供 CSS 类名称补全link。"],"img":"https://i.imgur.com/5crMfTj.gif","id":"8136dfc3-226c-4c0c-8f33-d5031e8b5422"},{"title":"IntelliCode","href":"https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode","description":["Visual Studio IntelliCode扩展为 Visual Studio Code 中的 Python、TypeScript/JavaScript 和 Java 开发人员提供人工智能辅助开发功能，并提供基于理解代码上下文和机器学习的见解。"],"img":"https://aka.ms/IntelliCodeUsageExamplesv2","id":"6d0ce96c-ba45-49d0-88e2-357df50c4835"},{"title":"Image preview","href":"https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview","description":["在装订线中和悬停时显示图像预览"],"img":"https://raw.githubusercontent.com/kisstkondoros/gutter-preview/master/images/sample.png","id":"9dc246b2-85f2-45bf-98fa-5ce47ee53cf0"},{"title":"GitLens — Git supercharged","href":"https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens","description":["增强 Git 功能并解锁存储库中未开发的知识，以更好地理解、编写和审查代码。专注、协作、加速。"],"img":"https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/current-line-blame.png","id":"77931dd1-2ec5-4f59-af01-8fe6220c47e7"},{"title":"GitLens — Git supercharged","href":"https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens","description":["增强 Git 功能并解锁存储库中未开发的知识，以更好地理解、编写和审查代码。专注、协作、加速。"],"img":"https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/current-line-blame.png","id":"f4cb9ee2-56e5-4f6f-aaf4-8a23718a65ce"},{"title":"ESLint","href":"https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint","description":["代码规范管理工具"],"id":"ee1a8757-026d-4c77-96af-baf1f98e6eea"},{"title":"ES7+ React/Redux/React-Native snippets","href":"https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets","description":["ES7+ 中的 JavaScript 和 React/Redux 片段以及VS Code的 Babel 插件功能"],"id":"5ee66400-d5e1-4e14-b671-786377ca266b"},{"title":"EditorConfig for VS Code","href":"https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig","description":["该插件尝试使用文件中找到的设置覆盖用户/工作空间设置.editorconfig。不需要额外的文件或特定于 vscode 的文件。与任何 EditorConfig 插件一样，如果root=true未指定，EditorConfig将继续查找.editorconfig项目外部的文件 。"],"id":"c3b392dc-57a0-48bf-b691-138eb9a5cf16"},{"title":"Dracula Official","href":"https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula","description":["Visual Studio Code的深色主题。"],"img":"https://raw.githubusercontent.com/dracula/visual-studio-code/master/screenshot.png","id":"3c024f8f-6637-4288-97e0-221228c1dcd7"},{"title":"Docker","href":"https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker","description":["Docker 扩展使您可以轻松地从 Visual Studio Code 构建、管理和部署容器化应用程序。它还提供对容器内 Node.js、Python 和 .NET 的一键调试。"],"img":"https://github.com/microsoft/vscode-docker/raw/HEAD/resources/readme/overview.gif","id":"e0db7577-24fd-4e38-bbc8-2f8a482c2195"},{"title":"Dev Containers","href":"https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers","description":["Dev Containers扩展允许您使用Docker 容器作为功能齐全的开发环境。无论您是否部署到容器，容器都是一个很好的开发环境","在部署到的同一操作系统上使用一致、易于复制的工具链进行开发。","在不同的独立开发环境之间快速切换并安全地进行更新，而无需担心影响本地计算机。","让新的团队成员/贡献者能够轻松地在一致的开发环境中启动和运行。"],"img":"https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif","id":"84b6ea48-d7f5-43c9-90c8-63d657fb50eb"},{"title":"CSS Peek","href":"https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek","description":["我以前用过的一个很棒的工具，他们没有要求我这么说:) - 扩展作者"],"img":"https://github.com/pranaygp/vscode-css-peek/raw/master/readme/working.gif","id":"736edf6b-6f43-49e9-b6c6-04409705eea7"},{"title":"CSS Navigation","href":"https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation","description":["允许从 HTML 到 CSS / Sass / Less转到定义，为类和 ID 名称提供完成和工作区符号，并支持从 CSS 到 HTML查找引用。"],"img":"https://github.com/pucelle/vscode-css-navigation/raw/HEAD/images/nesting.gif","id":"285ab5aa-90aa-4469-9b96-10064ce96cd9"},{"title":"Color Picker","href":"https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color","description":["GUI 帮助程序生成颜色代码，例如 CSS 颜色符号。并且，更改颜色符号的"],"img":"https://github.com/anseki/vscode-color/raw/master/s-01.gif","id":"3446a6e8-19a8-4a9f-a511-e8983b0e5da7"},{"title":"Chinese (Simplified)","href":"https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans","description":["此中文（简体）语言包为 VS Code 提供本地化界面。"],"id":"4a3793fc-f12b-4d67-8dc4-438188acd911"},{"title":"Auto Rename Tag","href":"https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag","description":["自动重命名配对的 HTML/XML 标记，与 Visual Studio IDE 的操作相同。"],"img":"https://github.com/formulahendry/vscode-auto-rename-tag/raw/HEAD/images/usage.gif","id":"e554cbda-f42b-4b11-a81a-1827939f11a7"},{"title":"Better Comments","href":"https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-commentsBetter Comments","description":["Better Comments 扩展将帮助您在代码中创建更人性化的注释。","通过此扩展，您将能够将注释分类为："],"img":"https://github.com/aaron-bond/better-comments/raw/HEAD/images/better-comments.PNG","id":"d57ea660-9cce-4454-8c73-e04e7e27b772"},{"title":"Auto Close Tag","href":"https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag","description":["自动添加 HTML/XML 结束标记，与 Visual Studio IDE 或 Sublime Text 相同。"],"img":"https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/usage.gif","id":"18f8b466-1427-41de-ad92-c84b817005f6"},{"title":"Color Highlight","href":"https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight","description":["此扩展对文档中找到的 css/web 颜色进行样式设置。"],"img":"https://naumovs.gallerycdn.vsassets.io/extensions/naumovs/color-highlight/2.5.0/1631530639439/Microsoft.VisualStudio.Services.Icons.Default","id":"cddab2ab-fafe-4cc3-9efb-a35acc08a5b9"}]
+[
+  {
+    "title": "Vetur",
+    "href": "https://marketplace.visualstudio.com/items?itemName=octref.vetur",
+    "description": ["vue 代码高亮"],
+    "id": "a79284d1-f142-410e-b91d-2be7b0301a60"
+  },
+  {
+    "title": "koroFileHeader",
+    "href": "https://marketplace.visualstudio.com/items?itemName=OBKoro1.korofileheader",
+    "description": [
+      "VSCode插件: 用于一键生成文件头部注释并自动更新最后编辑人和编辑时间、函数注释自动生成和参数提取。"
+    ],
+    "img": "https://raw.githubusercontent.com/OBKoro1/koro1FileHeader/master/images/example.gif",
+    "id": "6b174078-505a-44b6-b839-7192028c26b5"
+  },
+  {
+    "title": "Tailwind CSS IntelliSense",
+    "href": "https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss",
+    "description": [
+      "Tailwind CSS IntelliSense 通过为 Visual Studio Code 用户提供自动完成、语法突出显示和 linting 等高级功能来增强 Tailwind 开发体验。"
+    ],
+    "img": "https://raw.githubusercontent.com/bradlc/vscode-tailwindcss/master/packages/vscode-tailwindcss/.github/autocomplete.png",
+    "id": "c0bf669d-3368-46e0-b846-c71261623813"
+  },
+  {
+    "title": "Stylelint",
+    "href": "https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint",
+    "description": ["Stylelint的官方Visual Studio Code扩展"],
+    "img": "https://github.com/stylelint/vscode-stylelint/raw/HEAD/media/screenshot.png",
+    "id": "6eac1829-f17d-4f3d-8822-41a97d19db57"
+  },
+  {
+    "title": "Prettier ESLint",
+    "href": "https://marketplace.visualstudio.com/items?itemName=rvest.vs-code-prettier-eslint",
+    "description": [
+      "一个 Visual Studio Code 扩展，用于使用prettier-eslint包格式化 JavaScript 和 TypeScript 代码。"
+    ],
+    "img": "https://user-images.githubusercontent.com/10620169/119163604-c9a5cd80-ba18-11eb-91af-fe4d2efe8567.png",
+    "id": "f14b80a3-6c2a-4fe5-92cc-c54efd89b21d"
+  },
+  {
+    "title": "Prettier - Code formatter",
+    "href": "https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode",
+    "description": [
+      "Prettier是一个固执己见的代码格式化程序。它通过解析代码并使用自己的规则重新打印代码（考虑最大行长度）来强制执行一致的样式，并在必要时包装代码。"
+    ],
+    "img": "https://www.wisdomgeek.com/wp-content/uploads/2018/02/prettier.png",
+    "id": "8c7b44f9-6648-4029-ab53-32144a7aa2d0"
+  },
+  {
+    "title": "Path Intellisense",
+    "href": "https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense",
+    "description": ["自动完成文件名的 Visual Studio Code 插件。"],
+    "img": "https://i.giphy.com/iaHeUiDeTUZuo.gif",
+    "id": "5c8e4568-8e06-4a0d-bb61-3e8d9a61fc76"
+  },
+  {
+    "title": "NGINX Configuration",
+    "href": "https://marketplace.visualstudio.com/items?itemName=william-voyek.vscode-nginx",
+    "description": ["vscode 的 NGINX 配置文件语法高亮"],
+    "id": "3dcdeb4b-2b10-4a40-8c18-aa15ce4eac98"
+  },
+  {
+    "title": "nginx-format",
+    "href": "https://marketplace.visualstudio.com/items?itemName=teclado.vscode-nginx-format",
+    "description": ["nginx 配置文件的格式化程序"],
+    "img": "https://github.com/saper150/vscode-nginx-format/raw/master/img/preview.gif",
+    "id": "44899723-3a9e-4f9f-9270-3669098e714d"
+  },
+  {
+    "title": "Material Icon Theme",
+    "href": "https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme",
+    "description": ["将 Material Design 图标放入您的 VS Code 中。"],
+    "img": "https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/fileIcons.png",
+    "id": "dc2f0c48-faaa-4cfb-9eab-616d4bb8d296"
+  },
+  {
+    "title": "markdownlint",
+    "href": "https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint",
+    "description": [
+      "Visual Studio Code 的 Markdown/CommonMark linting 和样式检查"
+    ],
+    "id": "a2e43e9c-2305-4ba5-ac38-50656d1df68c"
+  },
+  {
+    "title": "Markdown Preview Enhanced",
+    "href": "https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced",
+    "description": ["Markdown 预览"],
+    "img": "https://user-images.githubusercontent.com/1908863/28495106-30b3b15e-6f09-11e7-8eb6-ca4ca001ab15.png",
+    "id": "b5e524f9-c507-42a2-9077-8b38b3a0fd90"
+  },
+  {
+    "title": "Live Server",
+    "href": "https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer",
+    "description": ["Live Server 用于服务器端页面"],
+    "img": "https://github.com/ritwickdey/vscode-live-server/raw/HEAD/images/Screenshot/vscode-live-server-animated-demo.gif",
+    "id": "a7dfdfa9-a76b-41a3-956c-bbeb95a9fe00"
+  },
+  {
+    "title": "JavaScript and TypeScript Nightly",
+    "href": "https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-next",
+    "description": [
+      "VS Code 扩展，支持夜间构建 TypeScript ( typescript@next) 作为 VS Code 的内置 TypeScript 版本，用于支持 JavaScript 和 TypeScript IntelliSense。"
+    ],
+    "id": "276ca110-d449-43e8-9d1e-f1897ea360a9"
+  },
+  {
+    "title": "JavaScript (ES6) code snippets",
+    "href": "https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets",
+    "description": [
+      "此扩展包含Vs Code编辑器的 ES6 语法中的 JavaScript 代码片段（支持 JavaScript 和 TypeScript）。"
+    ],
+    "id": "6b7f7250-ae43-47a4-abcc-93a05dec3fd8"
+  },
+  {
+    "title": "IntelliSense for CSS class names in HTML",
+    "href": "https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion",
+    "description": [
+      "class一个 Visual Studio Code 扩展，它根据工作区中找到的定义或通过元素引用的外部文件为 HTML 属性提供 CSS 类名称补全link。"
+    ],
+    "img": "https://i.imgur.com/5crMfTj.gif",
+    "id": "8136dfc3-226c-4c0c-8f33-d5031e8b5422"
+  },
+  {
+    "title": "IntelliCode",
+    "href": "https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode",
+    "description": [
+      "Visual Studio IntelliCode扩展为 Visual Studio Code 中的 Python、TypeScript/JavaScript 和 Java 开发人员提供人工智能辅助开发功能，并提供基于理解代码上下文和机器学习的见解。"
+    ],
+    "img": "https://aka.ms/IntelliCodeUsageExamplesv2",
+    "id": "6d0ce96c-ba45-49d0-88e2-357df50c4835"
+  },
+  {
+    "title": "Image preview",
+    "href": "https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-gutter-preview",
+    "description": ["在装订线中和悬停时显示图像预览"],
+    "img": "https://raw.githubusercontent.com/kisstkondoros/gutter-preview/master/images/sample.png",
+    "id": "9dc246b2-85f2-45bf-98fa-5ce47ee53cf0"
+  },
+  {
+    "title": "GitLens — Git supercharged",
+    "href": "https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens",
+    "description": [
+      "增强 Git 功能并解锁存储库中未开发的知识，以更好地理解、编写和审查代码。专注、协作、加速。"
+    ],
+    "img": "https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/current-line-blame.png",
+    "id": "77931dd1-2ec5-4f59-af01-8fe6220c47e7"
+  },
+  {
+    "title": "GitLens — Git supercharged",
+    "href": "https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens",
+    "description": [
+      "增强 Git 功能并解锁存储库中未开发的知识，以更好地理解、编写和审查代码。专注、协作、加速。"
+    ],
+    "img": "https://raw.githubusercontent.com/gitkraken/vscode-gitlens/main/images/docs/current-line-blame.png",
+    "id": "f4cb9ee2-56e5-4f6f-aaf4-8a23718a65ce"
+  },
+  {
+    "title": "ESLint",
+    "href": "https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint",
+    "description": ["代码规范管理工具"],
+    "id": "ee1a8757-026d-4c77-96af-baf1f98e6eea"
+  },
+  {
+    "title": "ES7+ React/Redux/React-Native snippets",
+    "href": "https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets",
+    "description": [
+      "ES7+ 中的 JavaScript 和 React/Redux 片段以及VS Code的 Babel 插件功能"
+    ],
+    "id": "5ee66400-d5e1-4e14-b671-786377ca266b"
+  },
+  {
+    "title": "EditorConfig for VS Code",
+    "href": "https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig",
+    "description": [
+      "该插件尝试使用文件中找到的设置覆盖用户/工作空间设置.editorconfig。不需要额外的文件或特定于 vscode 的文件。与任何 EditorConfig 插件一样，如果root=true未指定，EditorConfig将继续查找.editorconfig项目外部的文件 。"
+    ],
+    "id": "c3b392dc-57a0-48bf-b691-138eb9a5cf16"
+  },
+  {
+    "title": "Dracula Official",
+    "href": "https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula",
+    "description": ["Visual Studio Code的深色主题。"],
+    "img": "https://raw.githubusercontent.com/dracula/visual-studio-code/master/screenshot.png",
+    "id": "3c024f8f-6637-4288-97e0-221228c1dcd7"
+  },
+  {
+    "title": "Docker",
+    "href": "https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker",
+    "description": [
+      "Docker 扩展使您可以轻松地从 Visual Studio Code 构建、管理和部署容器化应用程序。它还提供对容器内 Node.js、Python 和 .NET 的一键调试。"
+    ],
+    "img": "https://github.com/microsoft/vscode-docker/raw/HEAD/resources/readme/overview.gif",
+    "id": "e0db7577-24fd-4e38-bbc8-2f8a482c2195"
+  },
+  {
+    "title": "Dev Containers",
+    "href": "https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers",
+    "description": [
+      "Dev Containers扩展允许您使用Docker 容器作为功能齐全的开发环境。无论您是否部署到容器，容器都是一个很好的开发环境",
+      "在部署到的同一操作系统上使用一致、易于复制的工具链进行开发。",
+      "在不同的独立开发环境之间快速切换并安全地进行更新，而无需担心影响本地计算机。",
+      "让新的团队成员/贡献者能够轻松地在一致的开发环境中启动和运行。"
+    ],
+    "img": "https://microsoft.github.io/vscode-remote-release/images/remote-containers-readme.gif",
+    "id": "84b6ea48-d7f5-43c9-90c8-63d657fb50eb"
+  },
+  {
+    "title": "CSS Peek",
+    "href": "https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek",
+    "description": [
+      "我以前用过的一个很棒的工具，他们没有要求我这么说:) - 扩展作者"
+    ],
+    "img": "https://github.com/pranaygp/vscode-css-peek/raw/master/readme/working.gif",
+    "id": "736edf6b-6f43-49e9-b6c6-04409705eea7"
+  },
+  {
+    "title": "CSS Navigation",
+    "href": "https://marketplace.visualstudio.com/items?itemName=pucelle.vscode-css-navigation",
+    "description": [
+      "允许从 HTML 到 CSS / Sass / Less转到定义，为类和 ID 名称提供完成和工作区符号，并支持从 CSS 到 HTML查找引用。"
+    ],
+    "img": "https://github.com/pucelle/vscode-css-navigation/raw/HEAD/images/nesting.gif",
+    "id": "285ab5aa-90aa-4469-9b96-10064ce96cd9"
+  },
+  {
+    "title": "Color Picker",
+    "href": "https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color",
+    "description": [
+      "GUI 帮助程序生成颜色代码，例如 CSS 颜色符号。并且，更改颜色符号的"
+    ],
+    "img": "https://github.com/anseki/vscode-color/raw/master/s-01.gif",
+    "id": "3446a6e8-19a8-4a9f-a511-e8983b0e5da7"
+  },
+  {
+    "title": "Chinese (Simplified)",
+    "href": "https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-zh-hans",
+    "description": ["此中文（简体）语言包为 VS Code 提供本地化界面。"],
+    "id": "4a3793fc-f12b-4d67-8dc4-438188acd911"
+  },
+  {
+    "title": "Auto Rename Tag",
+    "href": "https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag",
+    "description": [
+      "自动重命名配对的 HTML/XML 标记，与 Visual Studio IDE 的操作相同。"
+    ],
+    "img": "https://github.com/formulahendry/vscode-auto-rename-tag/raw/HEAD/images/usage.gif",
+    "id": "e554cbda-f42b-4b11-a81a-1827939f11a7"
+  },
+  {
+    "title": "Better Comments",
+    "href": "https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-commentsBetter Comments",
+    "description": [
+      "Better Comments 扩展将帮助您在代码中创建更人性化的注释。",
+      "通过此扩展，您将能够将注释分类为："
+    ],
+    "img": "https://github.com/aaron-bond/better-comments/raw/HEAD/images/better-comments.PNG",
+    "id": "d57ea660-9cce-4454-8c73-e04e7e27b772"
+  },
+  {
+    "title": "Auto Close Tag",
+    "href": "https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag",
+    "description": [
+      "自动添加 HTML/XML 结束标记，与 Visual Studio IDE 或 Sublime Text 相同。"
+    ],
+    "img": "https://github.com/formulahendry/vscode-auto-close-tag/raw/HEAD/images/usage.gif",
+    "id": "18f8b466-1427-41de-ad92-c84b817005f6"
+  },
+  {
+    "title": "Color Highlight",
+    "href": "https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight",
+    "description": ["此扩展对文档中找到的 css/web 颜色进行样式设置。"],
+    "img": "https://naumovs.gallerycdn.vsassets.io/extensions/naumovs/color-highlight/2.5.0/1631530639439/Microsoft.VisualStudio.Services.Icons.Default",
+    "id": "cddab2ab-fafe-4cc3-9efb-a35acc08a5b9"
+  }
+]

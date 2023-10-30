@@ -1,10 +1,14 @@
 import { readFileSync, writeFileSync } from 'fs'
 import WebSocket from 'ws'
 import { DataParams, MessageType } from './src/interface'
-import { v4 } from 'uuid'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const prot = process.env.port as string
 
 // 创建WebSocket服务器
-const wss = new WebSocket.Server({ port: 4000 })
+const wss = new WebSocket.Server({ port: +prot })
 
 const dataFiles = (type: MessageType['type']) => `./data/${type}.json`
 

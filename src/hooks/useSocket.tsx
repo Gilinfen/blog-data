@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react'
 import { MessageType } from '../interface'
 
-const ws = new WebSocket('ws://localhost:4000')
+const port = process.env.port
+
+const ws = new WebSocket(`ws://localhost:${port}`)
 
 export default function UseSocket({
-  callback,
+  callback
 }: {
   callback: (value: MessageEvent<any>) => void
 }) {
@@ -23,7 +25,7 @@ export default function UseSocket({
     }
 
     // 接收服务器消息的处理
-    ws.onmessage = (event) => {
+    ws.onmessage = event => {
       callback(event)
     }
 
@@ -37,6 +39,6 @@ export default function UseSocket({
   return {
     ws: state,
     send,
-    link,
+    link
   }
 }
