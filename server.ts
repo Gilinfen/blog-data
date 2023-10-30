@@ -10,7 +10,7 @@ const prot = process.env.port as string
 // 创建WebSocket服务器
 const wss = new WebSocket.Server({ port: +prot })
 
-const dataFiles = (type: MessageType['type']) => `./data/${type}.json`
+const dataFiles = (type: MessageType['type']) => `./web/data/${type}.json`
 
 function readFile(type: MessageType['type']): any[] {
   const value = readFileSync(dataFiles(type), 'utf-8') ?? '[]'

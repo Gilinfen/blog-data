@@ -1,9 +1,9 @@
 import { memo, useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import styles from './index.module.scss'
-import Npm from '../../data/npm.json'
-import Tools from '../../data/tools.json'
-import Vscode from '../../data/vscode.json'
+import Npm from '../data/npm.json'
+import Tools from '../data/tools.json'
+import Vscode from '../data/vscode.json'
 
 type ToolsData = {
   id: string
@@ -100,7 +100,7 @@ const Video = memo(
 )
 
 const ToolsItem = memo((props: ToolsItemType) => {
-  const { title, href, description, img, support, id } = props
+  const { title, href, description, img, support } = props
   const { npm, 'npm-link': npm_link } = props as NpmData
   const { video } = props as ToolsData
 
@@ -143,7 +143,7 @@ function App() {
   return (
     <div className={styles.root}>
       <header className="tools-header">
-        {data.map((item, i) => (
+        {data.map((item) => (
           <h1
             key={item.label}
             className={clsx(

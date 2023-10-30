@@ -4,12 +4,12 @@ FROM node:18.16.0-alpine AS builder
 RUN npm config set registry https://registry.npm.taobao.org
 
 WORKDIR /app
-COPY . .
+COPY ./web .
+COPY ./nginx.conf .
 
-# 安装cross-env
-RUN npm install -g cross-env
+RUN rm -rf node_modules pnpm-lock.yaml
 
-RUN cd ./web && npm install && npm run build
+RUN npm install && npm run build
 
 FROM alpine:latest
 
@@ -19,7 +19,7 @@ WORKDIR /app
 
 EXPOSE 80
 
-COPY --from=builder /app/web/dist /usr/share/nginx/dist
+COPY --from=builder /app/dist /usr/share/nginx/dist
 
 COPY --from=builder /app/nginx.conf /etc/nginx/http.d/default.conf
 

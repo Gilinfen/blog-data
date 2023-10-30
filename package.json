@@ -1,9 +1,6 @@
 {
   "name": "blog-data",
   "version": "1.0.0",
-  "workspaces": [
-    "web/*"
-  ],
   "scripts": {
     "start": "ts-node --project ./tsconfig.base.json ./scripts/start",
     "dev": "cd ./web && pnpm dev",
