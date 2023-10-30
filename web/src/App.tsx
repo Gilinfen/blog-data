@@ -1,4 +1,4 @@
-import { memo, useEffect, useRef, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import clsx from 'clsx'
 import styles from './index.module.scss'
 import Npm from '../data/npm.json'
@@ -140,10 +140,58 @@ function App() {
   )
   const [type, setType] = useState<GetToolsType>('tools')
 
+  const [inputValue, setInputValue] = useState('')
+
+  const camelCaseToLowerCase = useCallback(
+    (str: string): string =>
+      str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase(),
+    []
+  )
+
+  const filterArray = useCallback(
+    (searchString: string, mtype: typeof type): typeof list => {
+      const searchStringLower = searchString.toLowerCase() // 将搜索字符串转换为小写
+      return (data.find(e => e.label === mtype)?.value ?? []).filter(obj => {
+        const titleLowerCase = camelCaseToLowerCase(obj.title) // 将标题字段转换为小写和连字符
+        const titleMatch = titleLowerCase.includes(searchStringLower) // 进行小写比较
+        let descriptionMatch = false
+
+        if (typeof obj.description === 'string') {
+          // 如果description是字符串，直接比较
+          descriptionMatch = obj.description
+            .toLowerCase()
+            .includes(searchStringLower)
+        } else if (Array.isArray(obj.description)) {
+          // 如果description是字符串数组，检查数组中的每个字符串是否包含搜索字符串
+          descriptionMatch = obj.description.some(desc =>
+            desc.toLowerCase().includes(searchStringLower)
+          )
+        }
+
+        return titleMatch || descriptionMatch
+      })
+    },
+    [data]
+  )
+
+  // const dataList = useMemo(
+  //   () => data.reduce((p: any, e) => [...p, ...e.value], []),
+  //   [data]
+  // )
+
+  useEffect(() => {
+    setList(filterArray(inputValue.trim(), type))
+  }, [inputValue, filterArray, setList])
+
+  const onChange = useCallback((val: any) => {
+    const value = val.target.value as string
+    setInputValue(value)
+  }, [])
+
   return (
     <div className={styles.root}>
       <header className="tools-header">
-        {data.map((item) => (
+        {data.map(item => (
           <h1
             key={item.label}
             className={clsx(
@@ -151,7 +199,7 @@ function App() {
               'header-item'
             )}
             onClick={() => {
-              setList(item.value)
+              setList(filterArray(inputValue, item.label))
               setType(item.label)
             }}
           >
@@ -159,6 +207,7 @@ function App() {
           </h1>
         ))}
       </header>
+      <input className="search" value={inputValue} onChange={onChange} />
       <main className="tools-main">
         {list.map(item => (
           <ToolsItem {...item} key={item.id} />
