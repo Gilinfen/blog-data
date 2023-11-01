@@ -1,0 +1,7 @@
+[build]
+  publish = "./web/dist"
+  command = "pnpm run build"
+
+[build.environment]
+  NODE_VERSION = "18.16.0"
+  PNPM_VERSION = "7.11.0"
